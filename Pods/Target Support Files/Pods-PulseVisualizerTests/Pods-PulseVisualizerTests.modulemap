@@ -1,0 +1,6 @@
+framework module Pods_PulseVisualizerTests {
+  umbrella header "Pods-PulseVisualizerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

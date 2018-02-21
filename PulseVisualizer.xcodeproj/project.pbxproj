@@ -1,0 +1,1156 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		192C57BFC698D0CC08F96C96 /* Pods_PulseVisualizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0FBD1D9205AA7E75B998F4 /* Pods_PulseVisualizer.framework */; };
+		7A9503C4BE3735062D190137 /* Pods_PulseVisualizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57B6692B9A7053F88E7DB25 /* Pods_PulseVisualizerTests.framework */; };
+		98606328BBFB6C9BE3381B7F /* Pods_PulseVisualizerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F7C1F8AFD611E3DF2F9E00 /* Pods_PulseVisualizerUITests.framework */; };
+		ABB5E137F1355E08027D99ED /* Pods_PulseVisualizer_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69C8A4B492E875B7F6DEA6F /* Pods_PulseVisualizer_WatchKit_Extension.framework */; };
+		E16B536F203CF54400E2AD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B536E203CF54400E2AD6D /* AppDelegate.swift */; };
+		E16B5371203CF54400E2AD6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B5370203CF54400E2AD6D /* ViewController.swift */; };
+		E16B5374203CF54400E2AD6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E16B5372203CF54400E2AD6D /* Main.storyboard */; };
+		E16B5376203CF54400E2AD6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16B5375203CF54400E2AD6D /* Assets.xcassets */; };
+		E16B5379203CF54400E2AD6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E16B5377203CF54400E2AD6D /* LaunchScreen.storyboard */; };
+		E16B5384203CF54400E2AD6D /* PulseVisualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B5383203CF54400E2AD6D /* PulseVisualizerTests.swift */; };
+		E16B538F203CF54400E2AD6D /* PulseVisualizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B538E203CF54400E2AD6D /* PulseVisualizerUITests.swift */; };
+		E16B5394203CF54400E2AD6D /* PulseVisualizer WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E16B5393203CF54400E2AD6D /* PulseVisualizer WatchKit App.app */; };
+		E16B539A203CF54400E2AD6D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E16B5398203CF54400E2AD6D /* Interface.storyboard */; };
+		E16B539C203CF54400E2AD6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16B539B203CF54400E2AD6D /* Assets.xcassets */; };
+		E16B53A3203CF54400E2AD6D /* PulseVisualizer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E16B53A2203CF54400E2AD6D /* PulseVisualizer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E16B53A8203CF54400E2AD6D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B53A7203CF54400E2AD6D /* InterfaceController.swift */; };
+		E16B53AA203CF54400E2AD6D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B53A9203CF54400E2AD6D /* ExtensionDelegate.swift */; };
+		E16B53AC203CF54400E2AD6D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B53AB203CF54400E2AD6D /* NotificationController.swift */; };
+		E16B53AE203CF54400E2AD6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16B53AD203CF54400E2AD6D /* Assets.xcassets */; };
+		E16B53C6203CF86F00E2AD6D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16B53C5203CF86F00E2AD6D /* HealthKit.framework */; };
+		FE90DBF8630C8BEE107955B8 /* Pods_PulseVisualizer_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06543CF50F4E9F1764F2CD28 /* Pods_PulseVisualizer_WatchKit_App.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E16B5380203CF54400E2AD6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E16B5363203CF54400E2AD6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E16B536A203CF54400E2AD6D;
+			remoteInfo = PulseVisualizer;
+		};
+		E16B538B203CF54400E2AD6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E16B5363203CF54400E2AD6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E16B536A203CF54400E2AD6D;
+			remoteInfo = PulseVisualizer;
+		};
+		E16B5395203CF54400E2AD6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E16B5363203CF54400E2AD6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E16B5392203CF54400E2AD6D;
+			remoteInfo = "PulseVisualizer WatchKit App";
+		};
+		E16B53A4203CF54400E2AD6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E16B5363203CF54400E2AD6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E16B53A1203CF54400E2AD6D;
+			remoteInfo = "PulseVisualizer WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E16B53B6203CF54400E2AD6D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E16B53A3203CF54400E2AD6D /* PulseVisualizer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B53BA203CF54400E2AD6D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				E16B5394203CF54400E2AD6D /* PulseVisualizer WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		06543CF50F4E9F1764F2CD28 /* Pods_PulseVisualizer_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulseVisualizer_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D873724AAA71D6F281634A /* Pods-PulseVisualizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer/Pods-PulseVisualizer.debug.xcconfig"; sourceTree = "<group>"; };
+		1CDCB664EA420465860059AD /* Pods-PulseVisualizer WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer WatchKit App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer WatchKit App/Pods-PulseVisualizer WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		23DD23763ECF6C2B1A1ACDA6 /* Pods-PulseVisualizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizerTests/Pods-PulseVisualizerTests.release.xcconfig"; sourceTree = "<group>"; };
+		36A1304D5E16E4AB25DF16CF /* Pods-PulseVisualizer WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer WatchKit App/Pods-PulseVisualizer WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		4C409C7F5F09CA113C42CA6F /* Pods-PulseVisualizer WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer WatchKit Extension/Pods-PulseVisualizer WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		5FEE5A4B5DC90F437FE71F6E /* Pods-PulseVisualizerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizerUITests/Pods-PulseVisualizerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7739A14A78EEEAE07658202 /* Pods-PulseVisualizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizerTests/Pods-PulseVisualizerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB2479B5E337183BAD108420 /* Pods-PulseVisualizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizerUITests/Pods-PulseVisualizerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF7C5148D85694EBA655378D /* Pods-PulseVisualizer WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer WatchKit Extension/Pods-PulseVisualizer WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		E16B536B203CF54400E2AD6D /* PulseVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16B536E203CF54400E2AD6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E16B5370203CF54400E2AD6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E16B5373203CF54400E2AD6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E16B5375203CF54400E2AD6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E16B5378203CF54400E2AD6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E16B537A203CF54400E2AD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16B537F203CF54400E2AD6D /* PulseVisualizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseVisualizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16B5383203CF54400E2AD6D /* PulseVisualizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseVisualizerTests.swift; sourceTree = "<group>"; };
+		E16B5385203CF54400E2AD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16B538A203CF54400E2AD6D /* PulseVisualizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseVisualizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16B538E203CF54400E2AD6D /* PulseVisualizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseVisualizerUITests.swift; sourceTree = "<group>"; };
+		E16B5390203CF54400E2AD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16B5393203CF54400E2AD6D /* PulseVisualizer WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PulseVisualizer WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16B5399203CF54400E2AD6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		E16B539B203CF54400E2AD6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E16B539D203CF54400E2AD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16B53A2203CF54400E2AD6D /* PulseVisualizer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PulseVisualizer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16B53A7203CF54400E2AD6D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		E16B53A9203CF54400E2AD6D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		E16B53AB203CF54400E2AD6D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		E16B53AD203CF54400E2AD6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E16B53AF203CF54400E2AD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16B53B0203CF54400E2AD6D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		E16B53C5203CF86F00E2AD6D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		E16B53C7203CF86F00E2AD6D /* PulseVisualizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseVisualizer.entitlements; sourceTree = "<group>"; };
+		E57B6692B9A7053F88E7DB25 /* Pods_PulseVisualizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulseVisualizerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5F7C1F8AFD611E3DF2F9E00 /* Pods_PulseVisualizerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulseVisualizerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E69C8A4B492E875B7F6DEA6F /* Pods_PulseVisualizer_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulseVisualizer_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC0FBD1D9205AA7E75B998F4 /* Pods_PulseVisualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulseVisualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD88BE0171EC894DE0875E65 /* Pods-PulseVisualizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer/Pods-PulseVisualizer.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		984817CBC2D4401A94240B55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE90DBF8630C8BEE107955B8 /* Pods_PulseVisualizer_WatchKit_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B5368203CF54400E2AD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B53C6203CF86F00E2AD6D /* HealthKit.framework in Frameworks */,
+				192C57BFC698D0CC08F96C96 /* Pods_PulseVisualizer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B537C203CF54400E2AD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A9503C4BE3735062D190137 /* Pods_PulseVisualizerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B5387203CF54400E2AD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98606328BBFB6C9BE3381B7F /* Pods_PulseVisualizerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B539F203CF54400E2AD6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB5E137F1355E08027D99ED /* Pods_PulseVisualizer_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E16B5362203CF54400E2AD6D = {
+			isa = PBXGroup;
+			children = (
+				E16B536D203CF54400E2AD6D /* PulseVisualizer */,
+				E16B5382203CF54400E2AD6D /* PulseVisualizerTests */,
+				E16B538D203CF54400E2AD6D /* PulseVisualizerUITests */,
+				E16B5397203CF54400E2AD6D /* PulseVisualizer WatchKit App */,
+				E16B53A6203CF54400E2AD6D /* PulseVisualizer WatchKit Extension */,
+				E16B536C203CF54400E2AD6D /* Products */,
+				E16B53C4203CF86F00E2AD6D /* Frameworks */,
+				E539CC5771008F901CB53799 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		E16B536C203CF54400E2AD6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E16B536B203CF54400E2AD6D /* PulseVisualizer.app */,
+				E16B537F203CF54400E2AD6D /* PulseVisualizerTests.xctest */,
+				E16B538A203CF54400E2AD6D /* PulseVisualizerUITests.xctest */,
+				E16B5393203CF54400E2AD6D /* PulseVisualizer WatchKit App.app */,
+				E16B53A2203CF54400E2AD6D /* PulseVisualizer WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E16B536D203CF54400E2AD6D /* PulseVisualizer */ = {
+			isa = PBXGroup;
+			children = (
+				E16B53C7203CF86F00E2AD6D /* PulseVisualizer.entitlements */,
+				E16B536E203CF54400E2AD6D /* AppDelegate.swift */,
+				E16B5370203CF54400E2AD6D /* ViewController.swift */,
+				E16B5372203CF54400E2AD6D /* Main.storyboard */,
+				E16B5375203CF54400E2AD6D /* Assets.xcassets */,
+				E16B5377203CF54400E2AD6D /* LaunchScreen.storyboard */,
+				E16B537A203CF54400E2AD6D /* Info.plist */,
+			);
+			path = PulseVisualizer;
+			sourceTree = "<group>";
+		};
+		E16B5382203CF54400E2AD6D /* PulseVisualizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E16B5383203CF54400E2AD6D /* PulseVisualizerTests.swift */,
+				E16B5385203CF54400E2AD6D /* Info.plist */,
+			);
+			path = PulseVisualizerTests;
+			sourceTree = "<group>";
+		};
+		E16B538D203CF54400E2AD6D /* PulseVisualizerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E16B538E203CF54400E2AD6D /* PulseVisualizerUITests.swift */,
+				E16B5390203CF54400E2AD6D /* Info.plist */,
+			);
+			path = PulseVisualizerUITests;
+			sourceTree = "<group>";
+		};
+		E16B5397203CF54400E2AD6D /* PulseVisualizer WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				E16B5398203CF54400E2AD6D /* Interface.storyboard */,
+				E16B539B203CF54400E2AD6D /* Assets.xcassets */,
+				E16B539D203CF54400E2AD6D /* Info.plist */,
+			);
+			path = "PulseVisualizer WatchKit App";
+			sourceTree = "<group>";
+		};
+		E16B53A6203CF54400E2AD6D /* PulseVisualizer WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E16B53A7203CF54400E2AD6D /* InterfaceController.swift */,
+				E16B53A9203CF54400E2AD6D /* ExtensionDelegate.swift */,
+				E16B53AB203CF54400E2AD6D /* NotificationController.swift */,
+				E16B53AD203CF54400E2AD6D /* Assets.xcassets */,
+				E16B53AF203CF54400E2AD6D /* Info.plist */,
+				E16B53B0203CF54400E2AD6D /* PushNotificationPayload.apns */,
+			);
+			path = "PulseVisualizer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		E16B53C4203CF86F00E2AD6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E16B53C5203CF86F00E2AD6D /* HealthKit.framework */,
+				FC0FBD1D9205AA7E75B998F4 /* Pods_PulseVisualizer.framework */,
+				06543CF50F4E9F1764F2CD28 /* Pods_PulseVisualizer_WatchKit_App.framework */,
+				E69C8A4B492E875B7F6DEA6F /* Pods_PulseVisualizer_WatchKit_Extension.framework */,
+				E57B6692B9A7053F88E7DB25 /* Pods_PulseVisualizerTests.framework */,
+				E5F7C1F8AFD611E3DF2F9E00 /* Pods_PulseVisualizerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E539CC5771008F901CB53799 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12D873724AAA71D6F281634A /* Pods-PulseVisualizer.debug.xcconfig */,
+				FD88BE0171EC894DE0875E65 /* Pods-PulseVisualizer.release.xcconfig */,
+				1CDCB664EA420465860059AD /* Pods-PulseVisualizer WatchKit App.debug.xcconfig */,
+				36A1304D5E16E4AB25DF16CF /* Pods-PulseVisualizer WatchKit App.release.xcconfig */,
+				4C409C7F5F09CA113C42CA6F /* Pods-PulseVisualizer WatchKit Extension.debug.xcconfig */,
+				DF7C5148D85694EBA655378D /* Pods-PulseVisualizer WatchKit Extension.release.xcconfig */,
+				A7739A14A78EEEAE07658202 /* Pods-PulseVisualizerTests.debug.xcconfig */,
+				23DD23763ECF6C2B1A1ACDA6 /* Pods-PulseVisualizerTests.release.xcconfig */,
+				5FEE5A4B5DC90F437FE71F6E /* Pods-PulseVisualizerUITests.debug.xcconfig */,
+				AB2479B5E337183BAD108420 /* Pods-PulseVisualizerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E16B536A203CF54400E2AD6D /* PulseVisualizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16B53BB203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizer" */;
+			buildPhases = (
+				BA87B993D9A37EB97A3EA99C /* [CP] Check Pods Manifest.lock */,
+				E16B5367203CF54400E2AD6D /* Sources */,
+				E16B5368203CF54400E2AD6D /* Frameworks */,
+				E16B5369203CF54400E2AD6D /* Resources */,
+				E16B53BA203CF54400E2AD6D /* Embed Watch Content */,
+				BC48D8E7663C3C3C041CF0E2 /* [CP] Embed Pods Frameworks */,
+				424F69C4BB55FAE91037D2D1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E16B5396203CF54400E2AD6D /* PBXTargetDependency */,
+			);
+			name = PulseVisualizer;
+			productName = PulseVisualizer;
+			productReference = E16B536B203CF54400E2AD6D /* PulseVisualizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E16B537E203CF54400E2AD6D /* PulseVisualizerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16B53BE203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizerTests" */;
+			buildPhases = (
+				9C6402F7F4BB7D983C24DE85 /* [CP] Check Pods Manifest.lock */,
+				E16B537B203CF54400E2AD6D /* Sources */,
+				E16B537C203CF54400E2AD6D /* Frameworks */,
+				E16B537D203CF54400E2AD6D /* Resources */,
+				0A7437897233712246279268 /* [CP] Embed Pods Frameworks */,
+				35980E847436DB3F75AC45CC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E16B5381203CF54400E2AD6D /* PBXTargetDependency */,
+			);
+			name = PulseVisualizerTests;
+			productName = PulseVisualizerTests;
+			productReference = E16B537F203CF54400E2AD6D /* PulseVisualizerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E16B5389203CF54400E2AD6D /* PulseVisualizerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16B53C1203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizerUITests" */;
+			buildPhases = (
+				865871F377411E31F386F42A /* [CP] Check Pods Manifest.lock */,
+				E16B5386203CF54400E2AD6D /* Sources */,
+				E16B5387203CF54400E2AD6D /* Frameworks */,
+				E16B5388203CF54400E2AD6D /* Resources */,
+				A08C7CDA60871620AD596DCC /* [CP] Embed Pods Frameworks */,
+				4CC6514D70E5FF04F9F2904B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E16B538C203CF54400E2AD6D /* PBXTargetDependency */,
+			);
+			name = PulseVisualizerUITests;
+			productName = PulseVisualizerUITests;
+			productReference = E16B538A203CF54400E2AD6D /* PulseVisualizerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E16B5392203CF54400E2AD6D /* PulseVisualizer WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16B53B7203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizer WatchKit App" */;
+			buildPhases = (
+				E5A3BECA577757777E3BA4EF /* [CP] Check Pods Manifest.lock */,
+				E16B5391203CF54400E2AD6D /* Resources */,
+				E16B53B6203CF54400E2AD6D /* Embed App Extensions */,
+				984817CBC2D4401A94240B55 /* Frameworks */,
+				1E2FB265FBAF94AC1A929656 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E16B53A5203CF54400E2AD6D /* PBXTargetDependency */,
+			);
+			name = "PulseVisualizer WatchKit App";
+			productName = "PulseVisualizer WatchKit App";
+			productReference = E16B5393203CF54400E2AD6D /* PulseVisualizer WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		E16B53A1203CF54400E2AD6D /* PulseVisualizer WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16B53B3203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizer WatchKit Extension" */;
+			buildPhases = (
+				107699F338E305E8BE66A278 /* [CP] Check Pods Manifest.lock */,
+				E16B539E203CF54400E2AD6D /* Sources */,
+				E16B539F203CF54400E2AD6D /* Frameworks */,
+				E16B53A0203CF54400E2AD6D /* Resources */,
+				DEA22EE483EEFC960A5F02C5 /* [CP] Embed Pods Frameworks */,
+				042D296834817F3BEABC5EE9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PulseVisualizer WatchKit Extension";
+			productName = "PulseVisualizer WatchKit Extension";
+			productReference = E16B53A2203CF54400E2AD6D /* PulseVisualizer WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E16B5363203CF54400E2AD6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Marissa Le Coz";
+				TargetAttributes = {
+					E16B536A203CF54400E2AD6D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					E16B537E203CF54400E2AD6D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E16B536A203CF54400E2AD6D;
+					};
+					E16B5389203CF54400E2AD6D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E16B536A203CF54400E2AD6D;
+					};
+					E16B5392203CF54400E2AD6D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					E16B53A1203CF54400E2AD6D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E16B5366203CF54400E2AD6D /* Build configuration list for PBXProject "PulseVisualizer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E16B5362203CF54400E2AD6D;
+			productRefGroup = E16B536C203CF54400E2AD6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E16B536A203CF54400E2AD6D /* PulseVisualizer */,
+				E16B537E203CF54400E2AD6D /* PulseVisualizerTests */,
+				E16B5389203CF54400E2AD6D /* PulseVisualizerUITests */,
+				E16B5392203CF54400E2AD6D /* PulseVisualizer WatchKit App */,
+				E16B53A1203CF54400E2AD6D /* PulseVisualizer WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E16B5369203CF54400E2AD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B5379203CF54400E2AD6D /* LaunchScreen.storyboard in Resources */,
+				E16B5376203CF54400E2AD6D /* Assets.xcassets in Resources */,
+				E16B5374203CF54400E2AD6D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B537D203CF54400E2AD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B5388203CF54400E2AD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B5391203CF54400E2AD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B539C203CF54400E2AD6D /* Assets.xcassets in Resources */,
+				E16B539A203CF54400E2AD6D /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B53A0203CF54400E2AD6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B53AE203CF54400E2AD6D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		042D296834817F3BEABC5EE9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizer WatchKit Extension/Pods-PulseVisualizer WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0A7437897233712246279268 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizerTests/Pods-PulseVisualizerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		107699F338E305E8BE66A278 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1E2FB265FBAF94AC1A929656 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizer WatchKit App/Pods-PulseVisualizer WatchKit App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35980E847436DB3F75AC45CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizerTests/Pods-PulseVisualizerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		424F69C4BB55FAE91037D2D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizer/Pods-PulseVisualizer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CC6514D70E5FF04F9F2904B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizerUITests/Pods-PulseVisualizerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		865871F377411E31F386F42A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C6402F7F4BB7D983C24DE85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A08C7CDA60871620AD596DCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizerUITests/Pods-PulseVisualizerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA87B993D9A37EB97A3EA99C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC48D8E7663C3C3C041CF0E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizer/Pods-PulseVisualizer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEA22EE483EEFC960A5F02C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulseVisualizer WatchKit Extension/Pods-PulseVisualizer WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5A3BECA577757777E3BA4EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E16B5367203CF54400E2AD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B5371203CF54400E2AD6D /* ViewController.swift in Sources */,
+				E16B536F203CF54400E2AD6D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B537B203CF54400E2AD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B5384203CF54400E2AD6D /* PulseVisualizerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B5386203CF54400E2AD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B538F203CF54400E2AD6D /* PulseVisualizerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16B539E203CF54400E2AD6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16B53AC203CF54400E2AD6D /* NotificationController.swift in Sources */,
+				E16B53AA203CF54400E2AD6D /* ExtensionDelegate.swift in Sources */,
+				E16B53A8203CF54400E2AD6D /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E16B5381203CF54400E2AD6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E16B536A203CF54400E2AD6D /* PulseVisualizer */;
+			targetProxy = E16B5380203CF54400E2AD6D /* PBXContainerItemProxy */;
+		};
+		E16B538C203CF54400E2AD6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E16B536A203CF54400E2AD6D /* PulseVisualizer */;
+			targetProxy = E16B538B203CF54400E2AD6D /* PBXContainerItemProxy */;
+		};
+		E16B5396203CF54400E2AD6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E16B5392203CF54400E2AD6D /* PulseVisualizer WatchKit App */;
+			targetProxy = E16B5395203CF54400E2AD6D /* PBXContainerItemProxy */;
+		};
+		E16B53A5203CF54400E2AD6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E16B53A1203CF54400E2AD6D /* PulseVisualizer WatchKit Extension */;
+			targetProxy = E16B53A4203CF54400E2AD6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E16B5372203CF54400E2AD6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E16B5373203CF54400E2AD6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E16B5377203CF54400E2AD6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E16B5378203CF54400E2AD6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E16B5398203CF54400E2AD6D /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E16B5399203CF54400E2AD6D /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E16B53B1203CF54400E2AD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E16B53B2203CF54400E2AD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E16B53B4203CF54400E2AD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C409C7F5F09CA113C42CA6F /* Pods-PulseVisualizer WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = "PulseVisualizer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		E16B53B5203CF54400E2AD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF7C5148D85694EBA655378D /* Pods-PulseVisualizer WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = "PulseVisualizer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		E16B53B8203CF54400E2AD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CDCB664EA420465860059AD /* Pods-PulseVisualizer WatchKit App.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				IBSC_MODULE = PulseVisualizer_WatchKit_Extension;
+				INFOPLIST_FILE = "PulseVisualizer WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		E16B53B9203CF54400E2AD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36A1304D5E16E4AB25DF16CF /* Pods-PulseVisualizer WatchKit App.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				IBSC_MODULE = PulseVisualizer_WatchKit_Extension;
+				INFOPLIST_FILE = "PulseVisualizer WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		E16B53BC203CF54400E2AD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12D873724AAA71D6F281634A /* Pods-PulseVisualizer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PulseVisualizer/PulseVisualizer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = PulseVisualizer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		E16B53BD203CF54400E2AD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD88BE0171EC894DE0875E65 /* Pods-PulseVisualizer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PulseVisualizer/PulseVisualizer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = PulseVisualizer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		E16B53BF203CF54400E2AD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7739A14A78EEEAE07658202 /* Pods-PulseVisualizerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = PulseVisualizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulseVisualizer.app/PulseVisualizer";
+			};
+			name = Debug;
+		};
+		E16B53C0203CF54400E2AD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23DD23763ECF6C2B1A1ACDA6 /* Pods-PulseVisualizerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = PulseVisualizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulseVisualizer.app/PulseVisualizer";
+			};
+			name = Release;
+		};
+		E16B53C2203CF54400E2AD6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FEE5A4B5DC90F437FE71F6E /* Pods-PulseVisualizerUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = PulseVisualizerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PulseVisualizer;
+			};
+			name = Debug;
+		};
+		E16B53C3203CF54400E2AD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB2479B5E337183BAD108420 /* Pods-PulseVisualizerUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5422L7PASY;
+				INFOPLIST_FILE = PulseVisualizerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarissaLeCoz.PulseVisualizerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PulseVisualizer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E16B5366203CF54400E2AD6D /* Build configuration list for PBXProject "PulseVisualizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16B53B1203CF54400E2AD6D /* Debug */,
+				E16B53B2203CF54400E2AD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E16B53B3203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizer WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16B53B4203CF54400E2AD6D /* Debug */,
+				E16B53B5203CF54400E2AD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E16B53B7203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizer WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16B53B8203CF54400E2AD6D /* Debug */,
+				E16B53B9203CF54400E2AD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E16B53BB203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16B53BC203CF54400E2AD6D /* Debug */,
+				E16B53BD203CF54400E2AD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E16B53BE203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16B53BF203CF54400E2AD6D /* Debug */,
+				E16B53C0203CF54400E2AD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E16B53C1203CF54400E2AD6D /* Build configuration list for PBXNativeTarget "PulseVisualizerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E16B53C2203CF54400E2AD6D /* Debug */,
+				E16B53C3203CF54400E2AD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E16B5363203CF54400E2AD6D /* Project object */;
+}
