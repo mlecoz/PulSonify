@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        requestAccessToHealthKit()
         return true
+    }
+    
+    // Inspired by https://developer.apple.com/library/content/samplecode/SpeedySloth/Introduction/Intro.html#//apple_ref/doc/uid/TP40017338-Intro-DontLinkElementID_2
+    private func requestAccessToHealthKit() {
+        let healthStore = HKHealthStore()
+        
+        let allTypes = Set([HKObjectType.quantityType(forIdentifier: .heartRate)!])
+        
+        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+            if !success {
+                print(error?.localizedDescription ?? "")
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

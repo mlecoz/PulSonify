@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
     </dependencies>
@@ -17,8 +16,17 @@
                         <label height="57" alignment="left" text="Tap &quot;Record&quot; to stream your heart signals!" textAlignment="center" numberOfLines="0" id="fNI-zq-EQg">
                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
-                        <button width="1" alignment="left" title="Record" id="Sc7-VF-8Nr"/>
+                        <button width="1" alignment="left" title="Record" id="Sc7-VF-8Nr">
+                            <connections>
+                                <action selector="recordIsTapped" destination="AgC-eL-Hgc" id="JzM-Dx-wnA"/>
+                            </connections>
+                        </button>
+                        <label width="136" alignment="left" text="BPM" textAlignment="center" id="4DK-qt-zhj"/>
                     </items>
+                    <connections>
+                        <outlet property="bpm" destination="4DK-qt-zhj" id="nQz-5l-QWo"/>
+                        <outlet property="recordButton" destination="Sc7-VF-8Nr" id="TCh-yU-RpI"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>

@@ -8,14 +8,28 @@
 
 import UIKit
 import AudioKit
+import HealthKit
 
 class ViewController: UIViewController {
 
     let oscillator = AKOscillator()
     
+    let healthStore = HKHealthStore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+//        let bpmType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+//
+//        if HKHealthStore.isHealthDataAvailable() {
+//            self.healthStore.requestAuthorization(toShare: nil, read: [bpmType], completion: { (success, error) in
+//                let sortByTime = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+//                let timeFormatter = DateFormatter()
+//
+//                let dateFormatter = DateFormatter()
+//        }
+        // health kit query???
+        
     }
 
     override func didReceiveMemoryWarning() {
