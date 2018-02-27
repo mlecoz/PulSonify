@@ -9,13 +9,20 @@
 import WatchKit
 import Foundation
 import HealthKit
+import WatchConnectivity
 
 
-class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
+class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionDelegate {
+    
+    var wcSession: WCSession?
     
     @IBOutlet var bpm: WKInterfaceLabel!
     let healthStore = HKHealthStore()
     var workoutSession: HKWorkoutSession?
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("WC activation did complete")
+    }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         print("here")
@@ -28,6 +35,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         workoutSession?.delegate = self
+        
+        guard let wcSess = self.wcSession else { return }
+        wcSess.delegate = self
+        wcSess.activate()
     }
     
     // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
@@ -51,18 +62,30 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
     // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
     func updateHeartRate(samples: [HKSample]?) {
+        
         guard let heartRateSamples = samples as? [HKQuantitySample] else { return }
+        guard let sample = heartRateSamples.first else { return }
+        let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
         
         DispatchQueue.main.async() {
-            guard let sample = heartRateSamples.first else { return }
-            let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
             self.bpm.setText(String(UInt16(value)))
+        }
+        
+        let dataToSendToPhone = ["bpm":String(value)]
+        
+        self.wcSession?.sendMessage(dataToSendToPhone, replyHandler: nil) { error in
+            print("\(error.localizedDescription)")
         }
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        if WCSession.isSupported() {
+            wcSession = WCSession.default
+            wcSession?.delegate = self
+            wcSession?.activate()
+        }
     }
     
     override func didDeactivate() {

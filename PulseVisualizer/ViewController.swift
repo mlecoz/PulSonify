@@ -9,26 +9,50 @@
 import UIKit
 import AudioKit
 import HealthKit
+import WatchConnectivity
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, WCSessionDelegate {
+    
     let oscillator = AKOscillator()
     
     let healthStore = HKHealthStore()
     
+    // Watch Connectivity help from https://kristina.io/watchos-2-tutorial-using-sendmessage-for-instantaneous-data-transfer-watch-connectivity-1/
+    var wcSession: WCSession?
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("WC was activated")
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WC has become inactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("WC was deactivated")
+    }
+    
+    private func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]), -&gt; Void) {
+        let bpm = message["bpm"] as? String
+        
+        //Use this to update the UI instantaneously (otherwise, takes a little while)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.counterData.append(counterValue!)
+            self.mainTableView.reloadData()
+        }
+    }
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let bpmType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
-//
-//        if HKHealthStore.isHealthDataAvailable() {
-//            self.healthStore.requestAuthorization(toShare: nil, read: [bpmType], completion: { (success, error) in
-//                let sortByTime = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-//                let timeFormatter = DateFormatter()
-//
-//                let dateFormatter = DateFormatter()
-//        }
-        // health kit query???
+        if WCSession.isSupported() {
+            wcSession = WCSession.default
+            wcSession?.delegate = self
+            wcSession?.activate()
+        }
         
     }
 
