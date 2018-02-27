@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func requestAccessToHealthKit() {
         let healthStore = HKHealthStore()
         
-        let allTypes = Set([HKObjectType.quantityType(forIdentifier: .heartRate)!])
+        let heartRate = Set([HKObjectType.quantityType(forIdentifier: .heartRate)!])
         
-        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+        healthStore.requestAuthorization(toShare: heartRate, read: heartRate) { (success, error) in
             if !success {
                 print(error?.localizedDescription ?? "")
             }

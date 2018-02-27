@@ -21,6 +21,11 @@
                                 <action selector="recordIsTapped" destination="AgC-eL-Hgc" id="JzM-Dx-wnA"/>
                             </connections>
                         </button>
+                        <button width="1" alignment="left" title="Stop" id="B3l-88-3If">
+                            <connections>
+                                <action selector="stopIsTapped" destination="AgC-eL-Hgc" id="eNv-hd-VpJ"/>
+                            </connections>
+                        </button>
                         <label width="136" alignment="left" text="BPM" textAlignment="center" id="4DK-qt-zhj"/>
                     </items>
                     <connections>
