@@ -13,13 +13,17 @@ import WatchConnectivity
 
 class ViewController: UIViewController, WCSessionDelegate {
     
+    @IBOutlet weak var bpmLabel: UILabel!
     let oscillator = AKOscillator()
     
     let healthStore = HKHealthStore()
     
+    var bpmArray = [Double]()
+    
     // Watch Connectivity help from https://kristina.io/watchos-2-tutorial-using-sendmessage-for-instantaneous-data-transfer-watch-connectivity-1/
     var wcSession: WCSession?
     
+    // WC Session Delegate methods
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("WC was activated")
     }
@@ -32,18 +36,16 @@ class ViewController: UIViewController, WCSessionDelegate {
         print("WC was deactivated")
     }
     
-    private func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]), -&gt; Void) {
-        let bpm = message["bpm"] as? String
+    private func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        guard let bpm = message["bpm"] as? Double else { return }
         
         //Use this to update the UI instantaneously (otherwise, takes a little while)
-        dispatch_async(dispatch_get_main_queue()) {
-            self.counterData.append(counterValue!)
-            self.mainTableView.reloadData()
+        DispatchQueue.main.async {
+            self.bpmArray.append(bpm)
+            self.bpmLabel.text = String(bpm)
         }
     }
-    
-
-    
+    //////////////////////////////
     
     override func viewDidLoad() {
         super.viewDidLoad()

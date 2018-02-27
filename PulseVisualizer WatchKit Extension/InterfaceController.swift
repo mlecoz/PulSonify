@@ -73,9 +73,11 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSe
         
         let dataToSendToPhone = ["bpm":String(value)]
         
-        self.wcSession?.sendMessage(dataToSendToPhone, replyHandler: nil) { error in
+        self.wcSession?.sendMessage(dataToSendToPhone, replyHandler: { dataDictionary in 
+            print("Phone received bpm data")
+        }, errorHandler: { error in
             print("\(error.localizedDescription)")
-        }
+        })
     }
     
     override func willActivate() {
