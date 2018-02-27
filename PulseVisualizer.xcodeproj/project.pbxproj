@@ -27,7 +27,6 @@
 		E16B53AC203CF54400E2AD6D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B53AB203CF54400E2AD6D /* NotificationController.swift */; };
 		E16B53AE203CF54400E2AD6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16B53AD203CF54400E2AD6D /* Assets.xcassets */; };
 		E16B53C6203CF86F00E2AD6D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16B53C5203CF86F00E2AD6D /* HealthKit.framework */; };
-		E16B53C9203DD13900E2AD6D /* HealthStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B53C8203DD13900E2AD6D /* HealthStoreManager.swift */; };
 		E1F399852043D1CE0068DDC0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F399842043D1CE0068DDC0 /* HealthKit.framework */; };
 		FE90DBF8630C8BEE107955B8 /* Pods_PulseVisualizer_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06543CF50F4E9F1764F2CD28 /* Pods_PulseVisualizer_WatchKit_App.framework */; };
 /* End PBXBuildFile section */
@@ -125,7 +124,6 @@
 		E16B53B0203CF54400E2AD6D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		E16B53C5203CF86F00E2AD6D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E16B53C7203CF86F00E2AD6D /* PulseVisualizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PulseVisualizer.entitlements; sourceTree = "<group>"; };
-		E16B53C8203DD13900E2AD6D /* HealthStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStoreManager.swift; sourceTree = "<group>"; };
 		E1F399832043D1CE0068DDC0 /* PulseVisualizer WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PulseVisualizer WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		E1F399842043D1CE0068DDC0 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		E57B6692B9A7053F88E7DB25 /* Pods_PulseVisualizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulseVisualizerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,7 +257,6 @@
 				E16B53AD203CF54400E2AD6D /* Assets.xcassets */,
 				E16B53AF203CF54400E2AD6D /* Info.plist */,
 				E16B53B0203CF54400E2AD6D /* PushNotificationPayload.apns */,
-				E16B53C8203DD13900E2AD6D /* HealthStoreManager.swift */,
 			);
 			path = "PulseVisualizer WatchKit Extension";
 			sourceTree = "<group>";
@@ -756,7 +753,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E16B53AC203CF54400E2AD6D /* NotificationController.swift in Sources */,
-				E16B53C9203DD13900E2AD6D /* HealthStoreManager.swift in Sources */,
 				E16B53AA203CF54400E2AD6D /* ExtensionDelegate.swift in Sources */,
 				E16B53A8203CF54400E2AD6D /* InterfaceController.swift in Sources */,
 			);
