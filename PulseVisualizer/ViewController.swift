@@ -44,6 +44,14 @@ class ViewController: UIViewController, WCSessionDelegate {
             self.bpmArray.append(bpm)
             self.bpmLabel.text = String(bpm)
         }
+        
+        // send response
+        self.wcSession?.sendMessage(["all good":"true"], replyHandler: { dataDictionary in
+            print("phone told watch it received data")
+        }, errorHandler: { error in
+            print("\(error.localizedDescription)")
+            
+        })
     }
     //////////////////////////////
     

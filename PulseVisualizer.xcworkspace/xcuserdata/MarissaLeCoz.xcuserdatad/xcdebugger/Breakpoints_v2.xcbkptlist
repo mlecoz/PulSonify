@@ -10,156 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.427103"
+            timestampString = "541395482.714114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "willActivate()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.428401"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "InterfaceController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PulseVisualizer_WatchKit_Extension.InterfaceController.recordButton.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.WKInterfaceButton&gt;"
-                  moduleName = "PulseVisualizer WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MarissaLeCoz/Documents/xCode/PulseVisualizer/PulseVisualizer%20WatchKit%20Extension/InterfaceController.swift"
-                  timestampString = "541393829.393471"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PulseVisualizer_WatchKit_Extension.InterfaceController.recordButton.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.WKInterfaceButton&gt;"
-                  moduleName = "PulseVisualizer WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MarissaLeCoz/Documents/xCode/PulseVisualizer/PulseVisualizer%20WatchKit%20Extension/InterfaceController.swift"
-                  timestampString = "541393829.395556"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PulseVisualizer_WatchKit_Extension.InterfaceController.init() -&gt; PulseVisualizer_WatchKit_Extension.InterfaceController"
-                  moduleName = "PulseVisualizer WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MarissaLeCoz/Documents/xCode/PulseVisualizer/PulseVisualizer%20WatchKit%20Extension/InterfaceController.swift"
-                  timestampString = "541393829.3976181"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "432">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.429414"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "awake(withContext:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.430195"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "createHeartRateStreamingQuery()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.430865"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "updateHeartRate(samples:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PulseVisualizer_WatchKit_Extension.InterfaceController.updateHeartRate(samples: Swift.Optional&lt;Swift.Array&lt;__ObjC.HKSample&gt;&gt;) -&gt; ()"
-                  moduleName = "PulseVisualizer WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MarissaLeCoz/Documents/xCode/PulseVisualizer/PulseVisualizer%20WatchKit%20Extension/InterfaceController.swift"
-                  timestampString = "541393829.4153841"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "940">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Error) -&gt; () in PulseVisualizer_WatchKit_Extension.InterfaceController.updateHeartRate(samples: Swift.Optional&lt;Swift.Array&lt;__ObjC.HKSample&gt;&gt;) -&gt; ()"
-                  moduleName = "PulseVisualizer WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MarissaLeCoz/Documents/xCode/PulseVisualizer/PulseVisualizer%20WatchKit%20Extension/InterfaceController.swift"
-                  timestampString = "541393829.417394"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -169,87 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.4315031"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "recordIsTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.43212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "recordIsTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.432741"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "InterfaceController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.433334"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "createHeartRateStreamingQuery()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541389605.434199"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "awake(withContext:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
-            timestampString = "541393828.174016"
+            timestampString = "541395482.714556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -264,8 +41,24 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "PulseVisualizer WatchKit Extension/InterfaceController.swift"
+            timestampString = "541395482.714656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "updateHeartRate(samples:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "PulseVisualizer/ViewController.swift"
-            timestampString = "541394037.531752"
+            timestampString = "541395482.714745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
