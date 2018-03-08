@@ -10,9 +10,13 @@ import WatchKit
 import Foundation
 import HealthKit
 import WatchConnectivity
+import CloudKit
 
 
 class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionDelegate {
+    
+    var db = CKContainer.default().publicCloudDatabase
+    var container = CKContainer.default()
     
     var wcSession: WCSession?
     
@@ -21,7 +25,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSe
     var workoutSession: HKWorkoutSession?
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("WC activation did complete")
+        if let error = error {
+            print("WC Session activation failed with error: \(error.localizedDescription)")
+            return
+        }
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
@@ -35,9 +42,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSe
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         workoutSession?.delegate = self
-        
         guard let wcSess = self.wcSession else { return }
-        wcSess.delegate = self
         wcSess.activate()
     }
     
@@ -71,13 +76,32 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSe
             self.bpm.setText(String(UInt16(value)))
         }
         
-        let dataToSendToPhone = ["bpm":String(value)]
+        let newHeartRateSample = CKRecord(recordType: "HeartRateSample")
+        newHeartRateSample["bpm"] = value as CKRecordValue
         
-        self.wcSession?.sendMessage(dataToSendToPhone, replyHandler: { dataDictionary in 
-            print("Phone received bpm data")
-        }, errorHandler: { error in
-            print("\(error.localizedDescription)")
-        })
+        self.db.save(newHeartRateSample) { heartRateSample, error in
+            if error == nil {
+                print("Successfully saved bpm to db")
+            }
+            else {
+                print("\(error!)")
+            }
+        }
+        
+//        let dataToSendToPhone = ["bpm":String(value)]
+//
+//
+//        if (wcSession?.isReachable)! {
+//            self.wcSession?.sendMessage(dataToSendToPhone, replyHandler: nil)
+//                { dataDictionary in
+//                print("Phone received bpm data")
+//            }, errorHandler: { error in
+//                print("\(error.localizedDescription)")
+//            })
+//        }
+//        else {
+//            print("WC Session not reachable")
+//        }
     }
     
     override func willActivate() {
