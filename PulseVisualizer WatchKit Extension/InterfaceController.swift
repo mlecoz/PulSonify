@@ -15,9 +15,8 @@ import CloudKit
 
 class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionDelegate {
     
-    var db = CKContainer.default().publicCloudDatabase
-    var container = CKContainer.default()
-    
+    var db = CKContainer(identifier: "iCloud.com.MarissaLeCoz.PulseVisualizer").publicCloudDatabase
+
     var wcSession: WCSession?
     
     @IBOutlet var bpm: WKInterfaceLabel!

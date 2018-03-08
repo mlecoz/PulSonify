@@ -10,6 +10,7 @@ import UIKit
 import AudioKit
 import HealthKit
 import WatchConnectivity
+import CloudKit
 
 class ViewController: UIViewController, WCSessionDelegate {
     
@@ -17,6 +18,12 @@ class ViewController: UIViewController, WCSessionDelegate {
     let oscillator = AKOscillator()
     
     let healthStore = HKHealthStore()
+    
+    var db = CKContainer.default().publicCloudDatabase
+    var container = CKContainer.default()
+    
+    var ckUserId: CKRecordID?
+    var lastDate: Date?
     
     var bpmArray = [Double]()
     
@@ -56,53 +63,88 @@ class ViewController: UIViewController, WCSessionDelegate {
     }
     
     // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
-    func createHeartRateStreamingQuery() -> HKQuery? {
-        
-        if !HKHealthStore.isHealthDataAvailable() {
-            print("health data not available")
-        }
-        
-        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
-        
-        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: nil, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
-            self.updateHeartRate(samples: sampleObjects)
-        }
-        
-        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-            self.updateHeartRate(samples: samples)
-        }
-        return heartRateQuery
-    }
-    
-    // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
-    func updateHeartRate(samples: [HKSample]?) {
-        
-        guard let heartRateSamples = samples as? [HKQuantitySample] else { return }
-        guard let sample = heartRateSamples.first else { return }
-        let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
-        
-        DispatchQueue.main.async() {
-            self.bpmLabel.text = String(UInt16(value))
-        }
-    
-    }
+//    func createHeartRateStreamingQuery() -> HKQuery? {
+//
+//        if !HKHealthStore.isHealthDataAvailable() {
+//            print("health data not available")
+//        }
+//
+//        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
+//
+//        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: nil, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+//            self.updateHeartRate(samples: sampleObjects)
+//        }
+//
+//        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+//            self.updateHeartRate(samples: samples)
+//        }
+//        return heartRateQuery
+//    }
+//
+//    // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
+//    func updateHeartRate(samples: [HKSample]?) {
+//
+//        guard let heartRateSamples = samples as? [HKQuantitySample] else { return }
+//        guard let sample = heartRateSamples.first else { return }
+//        let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
+//
+//        DispatchQueue.main.async() {
+//            self.bpmLabel.text = String(UInt16(value))
+//        }
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if WCSession.isSupported() {
-            wcSession = WCSession.default
-            wcSession?.delegate = self
-            wcSession?.activate()
+        self.container.fetchUserRecordID() { userRecordID, err in
+            if err == nil {
+                self.ckUserId = userRecordID
+                print("Successfully fetched user record id")
+                
+            }
+            else {
+                print("\(err!)")
+            }
         }
+ 
         
-        if !(wcSession?.isPaired)! || !(wcSession?.isWatchAppInstalled)! {
-            print("PAIRING PROBLEM")
-        }
+//        if WCSession.isSupported() {
+//            wcSession = WCSession.default
+//            wcSession?.delegate = self
+//            wcSession?.activate()
+//        }
         
-        if HKHealthStore.isHealthDataAvailable() {
-            if let query = createHeartRateStreamingQuery() {
-                self.healthStore.execute(query)
+//        if !(wcSession?.isPaired)! || !(wcSession?.isWatchAppInstalled)! {
+//            print("PAIRING PROBLEM")
+//        }
+//
+//        if HKHealthStore.isHealthDataAvailable() {
+//            if let query = createHeartRateStreamingQuery() {
+//                self.healthStore.execute(query)
+//            }
+//        }
+    }
+    
+    func queryRecords(since lastDate: Date) {
+        
+        guard let userRecordID = self.ckUserId else { return }
+
+        let predicate = NSPredicate(format: "%K > %@ AND %K = %@", "creationDate", lastDate as CVarArg, "creatorUserRecordID", userRecordID)
+        let query = CKQuery(recordType: "HeartRateSample", predicate: predicate)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: true)
+        query.sortDescriptors = [sort]
+        self.db.perform(query, inZoneWith: nil) { records, error in
+            if error == nil {
+                guard let records = records else { return }
+                self.lastDate = lastDate
+                for record in records {
+                    guard let bpm = record.object(forKey: "bpm") as? Double else { return }
+                    self.bpmArray.append(bpm)
+                }
+            }
+            else {
+                print("\(error!)")
             }
         }
     }
@@ -114,17 +156,24 @@ class ViewController: UIViewController, WCSessionDelegate {
 
     @IBAction func playSound(_ sender: UIButton) {
         
-        AudioKit.output = oscillator
-        AudioKit.start()
-        oscillator.start()
+        self.lastDate = Date()
         
-        var i = 0
-        while i < 5 {
-            oscillator.frequency = random(in: 220...880)
-            i = i + 1
-            sleep(1)
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            guard let date = self.lastDate else { return }
+            self.queryRecords(since: date)
         }
-        oscillator.stop()
+        
+//        AudioKit.output = oscillator
+//        AudioKit.start()
+//        oscillator.start()
+//
+//        var i = 0
+//        while i < 5 {
+//            oscillator.frequency = random(in: 220...880)
+//            i = i + 1
+//            sleep(1)
+//        }
+//        oscillator.stop()
         
     }
     @IBAction func stopSound(_ sender: UIButton) {
