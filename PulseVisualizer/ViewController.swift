@@ -14,11 +14,12 @@ import CloudKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var bpmLabel: UILabel!
+    let MAX_BPM = 200
+    
     let oscillator = AKOscillator()
     
     let healthStore = HKHealthStore()
-    
+
     var db = CKContainer.default().publicCloudDatabase
     var container = CKContainer.default()
     
@@ -26,6 +27,14 @@ class ViewController: UIViewController {
     var lastDate: Date?
     
     var bpmArray = [Double]()
+    
+    var lastBpm: Double? {
+        didSet {
+            print("last bpm changed")
+        }
+    }
+    
+    var beepIsOn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +107,10 @@ class ViewController: UIViewController {
     }
     @IBAction func stopSound(_ sender: UIButton) {
         oscillator.stop()
+    }
+    
+    func fireInterval(bpm: Double) -> Double {
+        return 60.0 / bpm * 1000 // interval between beats, in ms
     }
     
 }

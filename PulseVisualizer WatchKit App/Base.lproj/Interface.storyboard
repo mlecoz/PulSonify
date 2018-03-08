@@ -13,10 +13,10 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PulseVisualizer_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label height="57" alignment="left" text="Tap &quot;Record&quot; to stream your heart signals!" textAlignment="center" numberOfLines="0" id="fNI-zq-EQg">
+                        <label width="135" height="57" alignment="left" text="Stream your heart signals!" textAlignment="center" numberOfLines="0" id="fNI-zq-EQg">
                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
-                        <button width="1" alignment="left" title="Record" id="Sc7-VF-8Nr">
+                        <button width="1" alignment="left" title="Start" id="Sc7-VF-8Nr">
                             <connections>
                                 <action selector="recordIsTapped" destination="AgC-eL-Hgc" id="JzM-Dx-wnA"/>
                             </connections>
@@ -34,7 +34,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="344.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
