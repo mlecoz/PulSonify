@@ -130,17 +130,23 @@ class ViewController: UIViewController, WCSessionDelegate {
         
         guard let userRecordID = self.ckUserId else { return }
 
-        let predicate = NSPredicate(format: "%K > %@ AND %K = %@", "creationDate", lastDate as CVarArg, "creatorUserRecordID", userRecordID)
+        let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg)//, "creatorUserRecordID", userRecordID)
         let query = CKQuery(recordType: "HeartRateSample", predicate: predicate)
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         query.sortDescriptors = [sort]
         self.db.perform(query, inZoneWith: nil) { records, error in
             if error == nil {
                 guard let records = records else { return }
-                self.lastDate = lastDate
                 for record in records {
                     guard let bpm = record.object(forKey: "bpm") as? Double else { return }
                     self.bpmArray.append(bpm)
+                }
+                if records.count > 0 {
+                    guard let date = records[records.count - 1].object(forKey: "creationDate") as? Date else { return }
+                    self.lastDate = date
+                }
+                else {
+                    self.lastDate = Date()
                 }
             }
             else {
