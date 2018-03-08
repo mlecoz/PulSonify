@@ -13,22 +13,13 @@ import WatchConnectivity
 import CloudKit
 
 
-class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionDelegate {
+class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
     var db = CKContainer(identifier: "iCloud.com.MarissaLeCoz.PulseVisualizer").publicCloudDatabase
-
-    var wcSession: WCSession?
     
     @IBOutlet var bpm: WKInterfaceLabel!
     let healthStore = HKHealthStore()
     var workoutSession: HKWorkoutSession?
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        if let error = error {
-            print("WC Session activation failed with error: \(error.localizedDescription)")
-            return
-        }
-    }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         print("here")
@@ -41,8 +32,6 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSe
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         workoutSession?.delegate = self
-        guard let wcSess = self.wcSession else { return }
-        wcSess.activate()
     }
     
     // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
@@ -87,30 +76,11 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSe
             }
         }
         
-//        let dataToSendToPhone = ["bpm":String(value)]
-//
-//
-//        if (wcSession?.isReachable)! {
-//            self.wcSession?.sendMessage(dataToSendToPhone, replyHandler: nil)
-//                { dataDictionary in
-//                print("Phone received bpm data")
-//            }, errorHandler: { error in
-//                print("\(error.localizedDescription)")
-//            })
-//        }
-//        else {
-//            print("WC Session not reachable")
-//        }
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        if WCSession.isSupported() {
-            wcSession = WCSession.default
-            wcSession?.delegate = self
-            wcSession?.activate()
-        }
     }
     
     override func didDeactivate() {

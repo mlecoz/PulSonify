@@ -12,7 +12,7 @@ import HealthKit
 import WatchConnectivity
 import CloudKit
 
-class ViewController: UIViewController, WCSessionDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var bpmLabel: UILabel!
     let oscillator = AKOscillator()
@@ -27,73 +27,6 @@ class ViewController: UIViewController, WCSessionDelegate {
     
     var bpmArray = [Double]()
     
-    // Watch Connectivity help from https://kristina.io/watchos-2-tutorial-using-sendmessage-for-instantaneous-data-transfer-watch-connectivity-1/
-    var wcSession: WCSession?
-    
-    // WC Session Delegate methods
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        if let error = error {
-            print("WC Session activation failed with error: \(error.localizedDescription)")
-            return
-        }
-    }
-    
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("WC has become inactive")
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("WC was deactivated")
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) { //, replyHandler: @escaping ([String : Any]) -> Void) {
-        guard let bpm = message["bpm"] as? Double else { return }
-        
-        //Use this to update the UI instantaneously (otherwise, takes a little while)
-        DispatchQueue.main.async {
-            self.bpmArray.append(bpm)
-            self.bpmLabel.text = String(bpm)
-        }
-        
-//        // send response
-//        if (self.wcSession?.isPaired)! && (self.wcSession?.isWatchAppInstalled)! && (self.wcSession?.isReachable)! {
-//            let respDict = ["all good":"true"]
-//            replyHandler(respDict)
-//        }
-    }
-    
-    // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
-//    func createHeartRateStreamingQuery() -> HKQuery? {
-//
-//        if !HKHealthStore.isHealthDataAvailable() {
-//            print("health data not available")
-//        }
-//
-//        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
-//
-//        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: nil, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
-//            self.updateHeartRate(samples: sampleObjects)
-//        }
-//
-//        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-//            self.updateHeartRate(samples: samples)
-//        }
-//        return heartRateQuery
-//    }
-//
-//    // modified from https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
-//    func updateHeartRate(samples: [HKSample]?) {
-//
-//        guard let heartRateSamples = samples as? [HKQuantitySample] else { return }
-//        guard let sample = heartRateSamples.first else { return }
-//        let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
-//
-//        DispatchQueue.main.async() {
-//            self.bpmLabel.text = String(UInt16(value))
-//        }
-//
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,30 +40,11 @@ class ViewController: UIViewController, WCSessionDelegate {
                 print("\(err!)")
             }
         }
- 
-        
-//        if WCSession.isSupported() {
-//            wcSession = WCSession.default
-//            wcSession?.delegate = self
-//            wcSession?.activate()
-//        }
-        
-//        if !(wcSession?.isPaired)! || !(wcSession?.isWatchAppInstalled)! {
-//            print("PAIRING PROBLEM")
-//        }
-//
-//        if HKHealthStore.isHealthDataAvailable() {
-//            if let query = createHeartRateStreamingQuery() {
-//                self.healthStore.execute(query)
-//            }
-//        }
     }
     
     func queryRecords(since lastDate: Date) {
         
-        guard let userRecordID = self.ckUserId else { return }
-
-        let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg)//, "creatorUserRecordID", userRecordID)
+        let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg) // TODO: filter by the user as well, if this were to go to the app store
         let query = CKQuery(recordType: "HeartRateSample", predicate: predicate)
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         query.sortDescriptors = [sort]
