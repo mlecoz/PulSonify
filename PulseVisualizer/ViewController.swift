@@ -14,12 +14,16 @@ import CloudKit
 
 class ViewController: UIViewController {
     
+    let mixer = AKMixer()
+    
     // sounds
     var beep = false
+    var test = false
     
     let MAX_BPM = 200
     
     let oscillator = AKOscillator()
+    let shaker = AKShaker()
     
     let healthStore = HKHealthStore()
 
@@ -116,6 +120,11 @@ class ViewController: UIViewController {
             if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep {
                 self.playBeep()
             }
+            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.test {
+                self.playTest()
+            }
+            // to play every other, fireInterval * 2
+            // to do an offset, the mod would equal 100, 200, 300, ...
         }
         
 //        AudioKit.output = oscillator
@@ -146,14 +155,31 @@ class ViewController: UIViewController {
     }
     
     func playBeep() {
-        
-        AudioKit.output = oscillator
-        AudioKit.start()
-        oscillator.start()
+        if !oscillator.isPlaying {
+            AudioKit.output = oscillator
+            AudioKit.start()
+            oscillator.start()
+        }
         oscillator.frequency = random(in: 220...880)
         // sleep
         //oscillator.stop()
         
+    }
+    
+    func playTest() {
+//        if !shaker.isPlaying {
+        AudioKit.output = shaker
+        AudioKit.start()
+        shaker.start()
+//        }
+        usleep(50) // half second i think
+        shaker.stop()
+        
+    }
+    
+    
+    @IBAction func testSwitchIsChanged(_ sender: UISwitch) {
+        self.test = sender.isOn
     }
     
 }
