@@ -117,7 +117,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
     
     @IBAction func stopIsTapped() {
         guard let sess = self.workoutSession else { return }
-        self.bpm.setText("BPM")
+        self.bpm.setText("--")
         healthStore.end(sess)
     }
     

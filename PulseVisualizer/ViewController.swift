@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     var beep = false
     var test = false
     
+    var isFirstTime = true
+    
     let MAX_BPM = 200
     
     let oscillator = AKOscillator()
@@ -56,6 +58,34 @@ class ViewController: UIViewController {
                 print("\(err!)")
             }
         }
+        
+//        AudioKit.start()
+        self.lastDate = Date()
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            guard let date = self.lastDate else { return }
+            self.queryRecords(since: date)
+        }
+            
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in // every 100 milliseconds
+            
+            self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
+            
+            guard let fireInterval = self.currentRoundedFireInterval else { return }
+            
+//            guard !self.isPaused else { return } // stop right here if we're paused. do not generate any sounds
+            
+            // fires on every heart beat and beep is turned on => beep on each heart beat
+            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep { //&& !self.isPaused {
+                self.playBeep()
+            }
+            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.test { //&& !self.isPaused {
+                self.playTest()
+            }
+            // to play every other, fireInterval * 2
+            // to do an offset, the mod would equal 100, 200, 300, ...
+        }
+        
     }
     
     func queryRecords(since lastDate: Date) {
@@ -99,50 +129,61 @@ class ViewController: UIViewController {
 
     @IBAction func playSound(_ sender: UIButton) {
         
-        self.isPaused = false
-        
-        self.lastDate = Date()
-        
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            guard let date = self.lastDate else { return }
-            self.queryRecords(since: date)
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in // every 100 milliseconds
-            
-            self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
-            
-            guard let fireInterval = self.currentRoundedFireInterval else { return }
-            
-            guard !self.isPaused else { return } // stop right here if we're paused. do not generate any sounds
-            
-            // fires on every heart beat and beep is turned on => beep on each heart beat
-            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep {
-                self.playBeep()
-            }
-            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.test {
-                self.playTest()
-            }
-            // to play every other, fireInterval * 2
-            // to do an offset, the mod would equal 100, 200, 300, ...
-        }
-        
-//        AudioKit.output = oscillator
-//        AudioKit.start()
-//        oscillator.start()
-//
-//        var i = 0
-//        while i < 5 {
-//            oscillator.frequency = random(in: 220...880)
-//            i = i + 1
-//            sleep(1)
+//        if AudioKit.output != nil {
+//            AudioKit.start()
 //        }
-//        oscillator.stop()
-        
+//        self.isPaused = false
+//        self.lastDate = Date()
+//
+//        if isFirstTime {
+//            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+//                guard let date = self.lastDate else { return }
+//                self.queryRecords(since: date)
+//            }
+//
+//            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in // every 100 milliseconds
+//
+//                self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
+//
+//                guard let fireInterval = self.currentRoundedFireInterval else { return }
+//
+//                guard !self.isPaused else { return } // stop right here if we're paused. do not generate any sounds
+//
+//                // fires on every heart beat and beep is turned on => beep on each heart beat
+//                if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep && !self.isPaused {
+//                    self.playBeep()
+//                }
+//                if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.test && !self.isPaused {
+//                    self.playTest()
+//                }
+//                // to play every other, fireInterval * 2
+//                // to do an offset, the mod would equal 100, 200, 300, ...
+//            }
+//        }
+//
+//        self.isFirstTime = false
+//
+////        AudioKit.output = oscillator
+////        AudioKit.start()
+////        oscillator.start()
+////
+////        var i = 0
+////        while i < 5 {
+////            oscillator.frequency = random(in: 220...880)
+////            i = i + 1
+////            sleep(1)
+////        }
+////        oscillator.stop()
+//
     }
     @IBAction func stopSound(_ sender: UIButton) {
-        self.isPaused = true
-        oscillator.stop()
+//        self.isPaused = true
+//        //oscillator.stop()
+//        AudioKit.stop()
+//        self.bpmArray.removeAll()
+//        self.currentMillisecLoopNum = 0
+//        self.currentRoundedFireInterval = nil
+//        self.lastDate = nil
     }
     
     func fireInterval(bpm: Int) -> Double {
@@ -180,6 +221,9 @@ class ViewController: UIViewController {
     
     @IBAction func testSwitchIsChanged(_ sender: UISwitch) {
         self.test = sender.isOn
+        if !sender.isOn {
+            oscillator.stop()
+        }
     }
     
 }

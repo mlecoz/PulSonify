@@ -16,17 +16,17 @@
                         <label width="135" height="57" alignment="left" text="Stream your heart signals!" textAlignment="center" numberOfLines="0" id="fNI-zq-EQg">
                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
-                        <button width="1" alignment="left" title="Start" id="Sc7-VF-8Nr">
+                        <button width="50" height="50" alignment="center" backgroundImage="icons8-play-button-circled-filled-50" id="Sc7-VF-8Nr">
                             <connections>
                                 <action selector="recordIsTapped" destination="AgC-eL-Hgc" id="JzM-Dx-wnA"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="Stop" id="B3l-88-3If">
+                        <button width="50" height="50" alignment="center" backgroundImage="icons8-pause-button-filled-50" id="B3l-88-3If">
                             <connections>
                                 <action selector="stopIsTapped" destination="AgC-eL-Hgc" id="eNv-hd-VpJ"/>
                             </connections>
                         </button>
-                        <label width="136" alignment="left" text="BPM" textAlignment="center" id="4DK-qt-zhj"/>
+                        <label width="136" alignment="left" text="--" textAlignment="center" id="4DK-qt-zhj"/>
                     </items>
                     <connections>
                         <outlet property="bpm" destination="4DK-qt-zhj" id="nQz-5l-QWo"/>
@@ -34,7 +34,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="344.5"/>
+            <point key="canvasLocation" x="220" y="344"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
