@@ -29,13 +29,11 @@ class ViewController: UIViewController {
     var ckUserId: CKRecordID?
     var lastDate: Date?
     
-    var bpmArray = [Double]()
+    var bpmArray = [Int]()
     
-    var currentRoundedBpm: Int? { // rounded to the 100th of a ms
-        didSet {
-            print("last bpm changed")
-        }
-    }
+    var currentRoundedFireInterval: Int? // rounded to the 100th of a ms
+    
+    var isPaused = false
     
     var currentMillisecLoopNum = 0
     
@@ -66,12 +64,13 @@ class ViewController: UIViewController {
             if error == nil {
                 guard let records = records else { return }
                 for record in records {
-                    guard let bpm = record.object(forKey: "bpm") as? Double else { return }
+                    guard let bpm = record.object(forKey: "bpm") as? Int else { return }
                     self.bpmArray.append(bpm)
                 }
                 if records.count > 0 {
                     guard let date = records[records.count - 1].object(forKey: "creationDate") as? Date else { return }
                     self.lastDate = date
+                    self.bpmDidChange(mostRecentRecordInBatch: records[records.count-1])
                 }
                 else {
                     self.lastDate = Date()
@@ -82,6 +81,12 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func bpmDidChange(mostRecentRecordInBatch: CKRecord) {
+        guard let bpm = mostRecentRecordInBatch.object(forKey: "bpm") as? Int else { return }
+        let fireInterval = self.fireInterval(bpm: bpm)
+        self.currentRoundedFireInterval = Int(round(fireInterval / 100.0) * 100) // round to nearest 100 milliseconds
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,6 +94,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playSound(_ sender: UIButton) {
+        
+        self.isPaused = false
         
         self.lastDate = Date()
         
@@ -101,11 +108,13 @@ class ViewController: UIViewController {
             
             self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
             
-            guard let currRoundedBpm = self.currentRoundedBpm else { return }
+            guard let fireInterval = self.currentRoundedFireInterval else { return }
+            
+            guard !self.isPaused else { return } // stop right here if we're paused. do not generate any sounds
             
             // fires on every heart beat and beep is turned on => beep on each heart beat
-            if (self.currentMillisecLoopNum * 100) % currRoundedBpm == 0 && self.beep {
-                
+            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep {
+                self.playBeep()
             }
         }
         
@@ -123,10 +132,11 @@ class ViewController: UIViewController {
         
     }
     @IBAction func stopSound(_ sender: UIButton) {
+        self.isPaused = true
         oscillator.stop()
     }
     
-    func fireInterval(bpm: Double) -> Double {
+    func fireInterval(bpm: Int) -> Double {
         return 60.0 / bpm * 1000 // interval between beats, in ms
     }
     
