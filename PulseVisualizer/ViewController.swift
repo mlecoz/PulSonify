@@ -130,5 +130,21 @@ class ViewController: UIViewController {
         return 60.0 / bpm * 1000 // interval between beats, in ms
     }
     
+    @IBOutlet weak var beepSwitch: UISwitch!
+    @IBAction func beepSwitchIsToggled(_ sender: UISwitch) {
+        self.beep = sender.isOn
+    }
+    
+    func playBeep() {
+        
+        AudioKit.output = oscillator
+        AudioKit.start()
+        oscillator.start()
+        oscillator.frequency = random(in: 220...880)
+        // sleep
+        //oscillator.stop()
+        
+    }
+    
 }
 
