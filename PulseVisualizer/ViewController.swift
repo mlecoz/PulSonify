@@ -14,6 +14,9 @@ import CloudKit
 
 class ViewController: UIViewController {
     
+    // sounds
+    var beep = false
+    
     let MAX_BPM = 200
     
     let oscillator = AKOscillator()
@@ -28,11 +31,13 @@ class ViewController: UIViewController {
     
     var bpmArray = [Double]()
     
-    var lastBpm: Double? {
+    var currentRoundedBpm: Int? { // rounded to the 100th of a ms
         didSet {
             print("last bpm changed")
         }
     }
+    
+    var currentMillisecLoopNum = 0
     
     var beepIsOn = false
     
@@ -90,6 +95,18 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             guard let date = self.lastDate else { return }
             self.queryRecords(since: date)
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in // every 100 milliseconds
+            
+            self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
+            
+            guard let currRoundedBpm = self.currentRoundedBpm else { return }
+            
+            // fires on every heart beat and beep is turned on => beep on each heart beat
+            if (self.currentMillisecLoopNum * 100) % currRoundedBpm == 0 && self.beep {
+                
+            }
         }
         
 //        AudioKit.output = oscillator
