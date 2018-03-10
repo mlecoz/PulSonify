@@ -74,6 +74,7 @@ class Drip: Sound {
     var drip = AKDrip()
     func play() {
         self.drip.dampingFactor = random(in: 10...100)
+        self.drip.amplitude = self.drip.amplitude * 1.0/2.0
         self.drip.trigger()
     }
     func stop() {
