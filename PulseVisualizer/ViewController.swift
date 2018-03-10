@@ -141,9 +141,6 @@ class ViewController: UIViewController {
         if !sender.isOn {
             oscillator.stop()
         }
-        else {
-            oscillator.start() // don't do this (start it somewhere else)
-        }
     }
     
     @IBOutlet weak var maracaSwitch: UISwitch!
@@ -157,6 +154,7 @@ class ViewController: UIViewController {
     
     func playBeep() {
         oscillator.frequency = random(in: 220...880)
+        oscillator.start()
     }
     
     func playMaraca() {
