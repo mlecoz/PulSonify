@@ -22,6 +22,7 @@
 		E12F29592054810300779C59 /* Shuffle-shuffle.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12F29582054810200779C59 /* Shuffle-shuffle.wav */; };
 		E12F295B2054810900779C59 /* Slide.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12F295A2054810800779C59 /* Slide.wav */; };
 		E12F295D205486AF00779C59 /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12F295C205486AE00779C59 /* Click.wav */; };
+		E12F295F20548A1000779C59 /* Click2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12F295E20548A1000779C59 /* Click2.wav */; };
 		E13572C12050C48800D7D773 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13572C02050C48800D7D773 /* CloudKit.framework */; };
 		E13572C32050D2EE00D7D773 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13572C22050D2EE00D7D773 /* CloudKit.framework */; };
 		E16B536F203CF54400E2AD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B536E203CF54400E2AD6D /* AppDelegate.swift */; };
@@ -122,6 +123,7 @@
 		E12F29582054810200779C59 /* Shuffle-shuffle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Shuffle-shuffle.wav"; sourceTree = SOURCE_ROOT; };
 		E12F295A2054810800779C59 /* Slide.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Slide.wav; sourceTree = SOURCE_ROOT; };
 		E12F295C205486AE00779C59 /* Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Click.wav; sourceTree = SOURCE_ROOT; };
+		E12F295E20548A1000779C59 /* Click2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Click2.wav; sourceTree = SOURCE_ROOT; };
 		E13572C02050C48800D7D773 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		E13572C22050D2EE00D7D773 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E16B536B203CF54400E2AD6D /* PulseVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 				E12F29582054810200779C59 /* Shuffle-shuffle.wav */,
 				E12F295A2054810800779C59 /* Slide.wav */,
 				E12F295C205486AE00779C59 /* Click.wav */,
+				E12F295E20548A1000779C59 /* Click2.wav */,
 				E16B53C7203CF86F00E2AD6D /* PulseVisualizer.entitlements */,
 				E16B536E203CF54400E2AD6D /* AppDelegate.swift */,
 				E16B5370203CF54400E2AD6D /* ViewController.swift */,
@@ -529,6 +532,7 @@
 				E12F29592054810300779C59 /* Shuffle-shuffle.wav in Resources */,
 				E16B5374203CF54400E2AD6D /* Main.storyboard in Resources */,
 				E12F2957205480FC00779C59 /* Perrydiddle.wav in Resources */,
+				E12F295F20548A1000779C59 /* Click2.wav in Resources */,
 				E12F2955205480F300779C59 /* Flap.wav in Resources */,
 				E12F295D205486AF00779C59 /* Click.wav in Resources */,
 				E12F2953205480ED00779C59 /* Cramproll.wav in Resources */,

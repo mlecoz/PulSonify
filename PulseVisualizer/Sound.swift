@@ -19,7 +19,7 @@ protocol Sound {
     
 }
 
-class RandomNote : Sound { // now plays a triad instead of random notes
+class Arpeggio : Sound { // now plays a triad instead of random notes
     let C_FREQ = 261.63
     let E_FREQ = 329.63
     let G_FREQ = 392.0
@@ -106,4 +106,16 @@ class CustomSound : Sound {
         mixer.stop()
     }
     
+}
+
+class Bells : Sound {
+    var rateRelativeToHeartBeat: Int = 3
+    var isPlaying: Bool = false
+    var bells = AKTubularBells()
+    func play() {
+        self.bells.trigger(frequency: 300)
+    }
+    func stop() {
+        self.bells.stop()
+    }
 }

@@ -60,8 +60,8 @@
                                                     <action selector="dripSwitchIsToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="VG1-zY-czz"/>
                                                 </connections>
                                             </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="click" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILP-xT-dCv">
-                                                <rect key="frame" x="43" y="167" width="35" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="snap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILP-xT-dCv">
+                                                <rect key="frame" x="42" y="167" width="37" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -125,14 +125,17 @@
                                                     <action selector="maracaSwitchIsToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="ufe-6O-8kE"/>
                                                 </connections>
                                             </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="random notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8Q-qc-eTa">
-                                                <rect key="frame" x="21" y="83.5" width="106" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8Q-qc-eTa">
+                                                <rect key="frame" x="56" y="83.5" width="36" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xvy-Gk-iZD">
                                                 <rect key="frame" x="49.5" y="120" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="bellsSwitchIsToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="zCc-QC-uwr"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brush" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzJ-Wr-a1g">
                                                 <rect key="frame" x="52" y="167" width="44" height="20.5"/>
@@ -210,6 +213,7 @@
                     </view>
                     <connections>
                         <outlet property="beepSwitch" destination="MOi-fC-I3f" id="goL-O3-lHm"/>
+                        <outlet property="bellsSwitch" destination="Xvy-Gk-iZD" id="wW4-av-XBf"/>
                         <outlet property="brushSwitch" destination="31L-8K-3Hw" id="pRY-Yg-82k"/>
                         <outlet property="clickSwitch" destination="3Mc-Fg-e0A" id="uS3-jI-h4c"/>
                         <outlet property="cramprollSwitch" destination="JDB-oq-bUa" id="ZBl-rF-xxi"/>

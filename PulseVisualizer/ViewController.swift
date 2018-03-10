@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var mixer: AKMixer?
     
     // SOUNDS FOR MIXER
-    let randNote = RandomNote()
+    let randNote = Arpeggio()
     let maraca = Maraca()
     let drip = Drip()
     let ukeCGAmF = CustomSound(file: "CGAmF.wav", rate: 1)
@@ -33,7 +33,8 @@ class ViewController: UIViewController {
     let perrydiddle = CustomSound(file: "Perrydiddle.wav", rate: 4)
     let doubleShuffle = CustomSound(file: "Shuffle-shuffle.wav", rate: 5)
     let brush = CustomSound(file: "Slide.wav", rate: 3)
-    let click = CustomSound(file: "Click.wav", rate: 3)
+    let click = CustomSound(file: "Click2.wav", rate: 3)
+    let bells = Bells()
     
     // MANAGERS
     var ckManager = CloudKitManager()
@@ -59,7 +60,8 @@ class ViewController: UIViewController {
                              self.perrydiddle.mixer,
                              self.doubleShuffle.mixer,
                              self.brush.mixer,
-                             self.click.mixer)
+                             self.click.mixer,
+                             self.bells.bells)
         AudioKit.output = self.mixer
         AudioKit.start()
         
@@ -102,7 +104,7 @@ class ViewController: UIViewController {
             if self.singing.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.singing.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.singing.play()
             }
-            if self.cramproll.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.cramproll.rateRelativeToHeartBeat * fireInterval) == 0 {
+            if self.cramproll.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.cramproll.rateRelativeToHeartBeat * fireInterval) == (self.INTERVAL_ROUNDING_VALUE) { // play on an offset of 100ms
                 self.cramproll.play()
             }
             if self.flap.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.flap.rateRelativeToHeartBeat * fireInterval) == 0 {
@@ -119,6 +121,9 @@ class ViewController: UIViewController {
             }
             if self.click.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.click.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.click.play()
+            }
+            if self.bells.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.bells.rateRelativeToHeartBeat * fireInterval) == (self.INTERVAL_ROUNDING_VALUE) { // offset 100ms
+                self.bells.play()
             }
             
             
@@ -230,5 +235,14 @@ class ViewController: UIViewController {
             self.click.stop()
         }
     }
+    
+    @IBOutlet weak var bellsSwitch: UISwitch!
+    @IBAction func bellsSwitchIsToggled(_ sender: UISwitch) {
+        self.bells.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.bells.stop()
+        }
+    }
+    
 }
 
