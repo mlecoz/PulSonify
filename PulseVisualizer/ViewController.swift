@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     let perrydiddle = CustomSound(file: "Perrydiddle.wav", rate: 4)
     let doubleShuffle = CustomSound(file: "Shuffle-shuffle.wav", rate: 5)
     let brush = CustomSound(file: "Slide.wav", rate: 3)
+    let click = CustomSound(file: "Click.wav", rate: 3)
     
     // MANAGERS
     var ckManager = CloudKitManager()
@@ -57,7 +58,8 @@ class ViewController: UIViewController {
                              self.flap.mixer,
                              self.perrydiddle.mixer,
                              self.doubleShuffle.mixer,
-                             self.brush.mixer)
+                             self.brush.mixer,
+                             self.click.mixer)
         AudioKit.output = self.mixer
         AudioKit.start()
         
@@ -112,8 +114,11 @@ class ViewController: UIViewController {
             if self.doubleShuffle.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.doubleShuffle.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.doubleShuffle.play()
             }
-            if self.brush.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.slid.rateRelativeToHeartBeat * fireInterval) == 0 {
+            if self.brush.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.brush.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.brush.play()
+            }
+            if self.click.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.click.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.click.play()
             }
             
             
@@ -180,9 +185,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cramprollSwitch: UISwitch!
     @IBAction func cramprollSwitchIsToggled(_ sender: UISwitch) {
-        self.singing.isPlaying = sender.isOn
+        self.cramproll.isPlaying = sender.isOn
         if !sender.isOn {
-            self.singing.stop()
+            self.cramproll.stop()
         }
     }
 
@@ -218,5 +223,12 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var clickSwitch: UISwitch!
+    @IBAction func clickSwitchIsToggled(_ sender: UISwitch) {
+        self.click.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.click.stop()
+        }
+    }
 }
 

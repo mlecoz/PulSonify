@@ -98,6 +98,7 @@ class CustomSound : Sound {
             mixer.start()
         }
         let player = fileToPlayerManager.makePlayer(file: file)
+        player?.volume = (player?.volume)! * 2
         mixer.connect(input: player)
         player?.start()
     }

@@ -60,14 +60,17 @@
                                                     <action selector="dripSwitchIsToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="VG1-zY-czz"/>
                                                 </connections>
                                             </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="random notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILP-xT-dCv">
-                                                <rect key="frame" x="7.5" y="167" width="106" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="click" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILP-xT-dCv">
+                                                <rect key="frame" x="43" y="167" width="35" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Mc-Fg-e0A">
                                                 <rect key="frame" x="36" y="203.5" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="clickSwitchIsToggled:" destination="BYZ-38-t0r" eventType="valueChanged" id="KyB-hY-Dxz"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="perry diddle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b1-Y4-zie">
                                                 <rect key="frame" x="14" y="250.5" width="92.5" height="20.5"/>
@@ -208,6 +211,7 @@
                     <connections>
                         <outlet property="beepSwitch" destination="MOi-fC-I3f" id="goL-O3-lHm"/>
                         <outlet property="brushSwitch" destination="31L-8K-3Hw" id="pRY-Yg-82k"/>
+                        <outlet property="clickSwitch" destination="3Mc-Fg-e0A" id="uS3-jI-h4c"/>
                         <outlet property="cramprollSwitch" destination="JDB-oq-bUa" id="ZBl-rF-xxi"/>
                         <outlet property="dripSwitch" destination="zo6-ip-eYr" id="2oO-HM-Qeb"/>
                         <outlet property="flapSwitch" destination="ozc-pM-rKg" id="OhQ-VX-23O"/>
