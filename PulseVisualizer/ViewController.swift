@@ -14,83 +14,87 @@ import CloudKit
 
 class ViewController: UIViewController {
     
-    let mixer = AKMixer()
+    // CONSTANTS
+    let INTERVAL_ROUNDING_VALUE = 100 // intervals (in ms) should be rounded to the nearest <this value>
+    let MS_IN_SEC = 1000
+    let SEC_IN_MIN = 60.0
     
-    // sounds
+    // SOUND BOOLEANS - indicates whether or not they're on
     var beep = false
-    var test = false
-    
-    var isFirstTime = true
-    
-    let MAX_BPM = 200
-    
-    let oscillator = AKOscillator()
-    let shaker = AKShaker()
-    
-    let healthStore = HKHealthStore()
+    var maraca = false
 
+    // NODES - nodes for each sound type to go into the mixer
+    var mixer: AKMixer?
+    let oscillator = AKOscillator()
+    var maracaShaker = AKShaker()
+    
+    // CLOUDKIT
     var db = CKContainer.default().publicCloudDatabase
     var container = CKContainer.default()
-    
     var ckUserId: CKRecordID?
-    var lastDate: Date?
     
-    var bpmArray = [Int]()
-    
+    // STATE
+    var lastDate: Date? // date/time at which CloudKit was last queried for heartbeats
+    var bpmArray = [Int]() // keeps track of incoming bpms
     var currentRoundedFireInterval: Int? // rounded to the 100th of a ms
-    
-    var isPaused = false
-    
     var currentMillisecLoopNum = 0
     
-    var beepIsOn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Init mixer and start AudioKit
+        self.mixer = AKMixer(self.oscillator, self.maracaShaker)
+        AudioKit.output = self.mixer
+        AudioKit.start()
         
+        // not actually using this right now
+        // but if I had more than 1 user, I'd want to include the user id in the CloudKit query
         self.container.fetchUserRecordID() { userRecordID, err in
             if err == nil {
                 self.ckUserId = userRecordID
                 print("Successfully fetched user record id")
-                
             }
             else {
                 print("\(err!)")
             }
         }
         
-//        AudioKit.start()
+        // save state
         self.lastDate = Date()
         
+        // Timer for checking cloudkit for new heartrate samples
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             guard let date = self.lastDate else { return }
             self.queryRecords(since: date)
         }
+        
+        // Timer for playing sounds
+        Timer.scheduledTimer(withTimeInterval: INTERVAL_ROUNDING_VALUE / MS_IN_SEC, repeats: true) { timer in // every 100 milliseconds
             
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in // every 100 milliseconds
-            
+            // state
             self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
-            
             guard let fireInterval = self.currentRoundedFireInterval else { return }
             
-//            guard !self.isPaused else { return } // stop right here if we're paused. do not generate any sounds
+            // VARIOUS SOUNDS - check whether they should fire on this invocation of the timer
+            // Check:
+            // - whether that sound is on
+            // - whether the sound should be played in this 100 ms multiple
+            // Examples: to play on every other heartbeat, fireInterval * 2; to do an offset, the mod would equal 100, 200, 300, ...
+            if self.beep && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0  { // on every heartbeat
+                self.playBeep() // really less of a beep and more of a sustained note
+            }
+            if self.maraca && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0 {
+                self.playMaraca()
+            }
             
-            // fires on every heart beat and beep is turned on => beep on each heart beat
-            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep { //&& !self.isPaused {
-                self.playBeep()
-            }
-            if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.test { //&& !self.isPaused {
-                self.playTest()
-            }
-            // to play every other, fireInterval * 2
-            // to do an offset, the mod would equal 100, 200, 300, ...
+            // to account for different rounding values, would want the mod to fall within some range propotional to the size of the rounding value
         }
-        
     }
     
     func queryRecords(since lastDate: Date) {
         
-        let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg) // TODO: filter by the user as well, if this were to go to the app store
+        let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg) // TODO: filter by the user as well if more users than just me
         let query = CKQuery(recordType: "HeartRateSample", predicate: predicate)
         let sort = NSSortDescriptor(key: "creationDate", ascending: true)
         query.sortDescriptors = [sort]
@@ -119,112 +123,46 @@ class ViewController: UIViewController {
     func bpmDidChange(mostRecentRecordInBatch: CKRecord) {
         guard let bpm = mostRecentRecordInBatch.object(forKey: "bpm") as? Int else { return }
         let fireInterval = self.fireInterval(bpm: bpm)
-        self.currentRoundedFireInterval = Int(round(fireInterval / 100.0) * 100) // round to nearest 100 milliseconds
+        self.currentRoundedFireInterval = Int(round(fireInterval / Double(INTERVAL_ROUNDING_VALUE)) * INTERVAL_ROUNDING_VALUE)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func playSound(_ sender: UIButton) {
-        
-//        if AudioKit.output != nil {
-//            AudioKit.start()
-//        }
-//        self.isPaused = false
-//        self.lastDate = Date()
-//
-//        if isFirstTime {
-//            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-//                guard let date = self.lastDate else { return }
-//                self.queryRecords(since: date)
-//            }
-//
-//            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in // every 100 milliseconds
-//
-//                self.currentMillisecLoopNum = self.currentMillisecLoopNum + 1
-//
-//                guard let fireInterval = self.currentRoundedFireInterval else { return }
-//
-//                guard !self.isPaused else { return } // stop right here if we're paused. do not generate any sounds
-//
-//                // fires on every heart beat and beep is turned on => beep on each heart beat
-//                if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.beep && !self.isPaused {
-//                    self.playBeep()
-//                }
-//                if (self.currentMillisecLoopNum * 100) % fireInterval == 0 && self.test && !self.isPaused {
-//                    self.playTest()
-//                }
-//                // to play every other, fireInterval * 2
-//                // to do an offset, the mod would equal 100, 200, 300, ...
-//            }
-//        }
-//
-//        self.isFirstTime = false
-//
-////        AudioKit.output = oscillator
-////        AudioKit.start()
-////        oscillator.start()
-////
-////        var i = 0
-////        while i < 5 {
-////            oscillator.frequency = random(in: 220...880)
-////            i = i + 1
-////            sleep(1)
-////        }
-////        oscillator.stop()
-//
-    }
-    @IBAction func stopSound(_ sender: UIButton) {
-//        self.isPaused = true
-//        //oscillator.stop()
-//        AudioKit.stop()
-//        self.bpmArray.removeAll()
-//        self.currentMillisecLoopNum = 0
-//        self.currentRoundedFireInterval = nil
-//        self.lastDate = nil
-    }
     
     func fireInterval(bpm: Int) -> Double {
-        return 60.0 / bpm * 1000 // interval between beats, in ms
+        return SEC_IN_MIN / bpm * MS_IN_SEC // interval between beats, in ms
     }
     
     @IBOutlet weak var beepSwitch: UISwitch!
     @IBAction func beepSwitchIsToggled(_ sender: UISwitch) {
         self.beep = sender.isOn
-    }
-    
-    func playBeep() {
-        if !oscillator.isPlaying {
-            AudioKit.output = oscillator
-            AudioKit.start()
-            oscillator.start()
-        }
-        oscillator.frequency = random(in: 220...880)
-        // sleep
-        //oscillator.stop()
-        
-    }
-    
-    func playTest() {
-//        if !shaker.isPlaying {
-        AudioKit.output = shaker
-        AudioKit.start()
-        shaker.start()
-//        }
-        usleep(50) // half second i think
-        shaker.stop()
-        
-    }
-    
-    
-    @IBAction func testSwitchIsChanged(_ sender: UISwitch) {
-        self.test = sender.isOn
         if !sender.isOn {
             oscillator.stop()
         }
+        else {
+            oscillator.start() // don't do this (start it somewhere else)
+        }
     }
+    
+    @IBOutlet weak var maracaSwitch: UISwitch!
+    @IBAction func maracaSwitchIsToggled(_ sender: UISwitch) {
+        self.maraca = sender.isOn
+        if !sender.isOn {
+            maracaShaker.stop()
+        }
+    }
+    
+    
+    func playBeep() {
+        oscillator.frequency = random(in: 220...880)
+    }
+    
+    func playMaraca() {
+        maracaShaker.trigger(amplitude: 3.0)
+    }
+    
     
 }
 
