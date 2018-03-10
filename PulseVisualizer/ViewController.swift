@@ -26,7 +26,13 @@ class ViewController: UIViewController {
     let randNote = RandomNote()
     let maraca = Maraca()
     let drip = Drip()
-    let ukeCGAmF = Uke1(file: "CGAmF.wav")
+    let ukeCGAmF = CustomSound(file: "CGAmF.wav", rate: 1)
+    let singing = CustomSound(file: "Latin3.wav", rate: 1)
+    let cramproll = CustomSound(file: "Cramproll.wav", rate: 3)
+    let flap = CustomSound(file: "Flap.wav", rate: 2)
+    let perrydiddle = CustomSound(file: "Perrydiddle.wav", rate: 4)
+    let doubleShuffle = CustomSound(file: "Shuffle-shuffle.wav", rate: 5)
+    let brush = CustomSound(file: "Slide.wav", rate: 3)
     
     // MANAGERS
     var ckManager = CloudKitManager()
@@ -45,7 +51,13 @@ class ViewController: UIViewController {
         self.mixer = AKMixer(self.randNote.oscillator,
                              self.maraca.shaker,
                              self.drip.drip,
-                             self.ukeCGAmF.mixer)
+                             self.ukeCGAmF.mixer,
+                             self.singing.mixer,
+                             self.cramproll.mixer,
+                             self.flap.mixer,
+                             self.perrydiddle.mixer,
+                             self.doubleShuffle.mixer,
+                             self.brush.mixer)
         AudioKit.output = self.mixer
         AudioKit.start()
         
@@ -85,6 +97,25 @@ class ViewController: UIViewController {
             if self.ukeCGAmF.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.ukeCGAmF.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.ukeCGAmF.play()
             }
+            if self.singing.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.singing.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.singing.play()
+            }
+            if self.cramproll.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.cramproll.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.cramproll.play()
+            }
+            if self.flap.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.flap.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.flap.play()
+            }
+            if self.perrydiddle.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.perrydiddle.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.perrydiddle.play()
+            }
+            if self.doubleShuffle.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.doubleShuffle.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.doubleShuffle.play()
+            }
+            if self.brush.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.slid.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.brush.play()
+            }
+            
             
             // to account for different rounding values, would want the mod to fall within some range propotional to the size of the rounding value
         }
@@ -108,7 +139,7 @@ class ViewController: UIViewController {
     
     // IB FUNCTIONS FOR EACH SOUND/TOGGLE
     @IBOutlet weak var beepSwitch: UISwitch! // actually the randNote switch
-    @IBAction func beepSwitchIsToggled(_ sender: UISwitch) { // actually the randNote switch
+    @IBAction func beepSwitchIsToggled(_ sender: UISwitch) { // actually arpeggio
         self.randNote.isPlaying = sender.isOn
         if !sender.isOn {
             self.randNote.stop()
@@ -131,13 +162,61 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var ukeCGAmFSwitch: UISwitch!
-    @IBAction func ukeCGAmFSwitchIsToggled(_ sender: UISwitch) {
+    @IBOutlet weak var ukeSwitch: UISwitch!
+    @IBAction func ukeSwitchIsToggled(_ sender: UISwitch) {
         self.ukeCGAmF.isPlaying = sender.isOn
         if !sender.isOn {
             self.ukeCGAmF.stop()
         }
     }
     
+    @IBOutlet weak var singingSwitch: UISwitch!
+    @IBAction func singingSwitchIsToggled(_ sender: UISwitch) {
+        self.singing.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.singing.stop()
+        }
+    }
+    
+    @IBOutlet weak var cramprollSwitch: UISwitch!
+    @IBAction func cramprollSwitchIsToggled(_ sender: UISwitch) {
+        self.singing.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.singing.stop()
+        }
+    }
+
+    @IBOutlet weak var shufflesSwitch: UISwitch!
+    @IBAction func shufflesSwitchIsToggled(_ sender: UISwitch) {
+        self.doubleShuffle.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.doubleShuffle.stop()
+        }
+    }
+    
+    @IBOutlet weak var perrydiddleSwitch: UISwitch!
+    @IBAction func perrydiddleSwitchIsToggled(_ sender: UISwitch) {
+        self.perrydiddle.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.perrydiddle.stop()
+        }
+    }
+    
+    @IBOutlet weak var flapSwitch: UISwitch!
+    @IBAction func flapSwitchIsToggled(_ sender: UISwitch) {
+        self.flap.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.flap.stop()
+        }
+    }
+    
+    @IBOutlet weak var brushSwitch: UISwitch!
+    @IBAction func brushSwitchIsToggled(_ sender: UISwitch) {
+        self.brush.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.brush.stop()
+        }
+    }
+
 }
 
