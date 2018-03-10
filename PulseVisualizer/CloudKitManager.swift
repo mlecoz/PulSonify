@@ -28,7 +28,7 @@ class CloudKitManager {
             }
         }
     }
-    
+
     func queryRecords(since lastDate: Date, bpmDidChange: @escaping (_ mostRecentRecordInBatch: CKRecord?, _ date: Date) -> Void) {
         
         let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg) // TODO: filter by the user as well if more users than just me

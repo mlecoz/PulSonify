@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     let MS_IN_SEC = 1000
     let SEC_IN_MIN = 60.0
     
+    // TO MIX SOUNDS
     var mixer: AKMixer?
     
     // SOUNDS FOR MIXER
@@ -93,6 +94,8 @@ class ViewController: UIViewController {
         return SEC_IN_MIN / bpm * MS_IN_SEC // interval between beats, in ms
     }
     
+    
+    // IB FUNCTIONS FOR EACH SOUND/TOGGLE
     @IBOutlet weak var beepSwitch: UISwitch! // actually the randNote switch
     @IBAction func beepSwitchIsToggled(_ sender: UISwitch) { // actually the randNote switch
         self.randNote.isPlaying = sender.isOn

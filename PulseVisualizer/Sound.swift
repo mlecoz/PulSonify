@@ -24,7 +24,6 @@ class RandomNote : Sound {
     var isPlaying: Bool = false
     var oscillator = AKOscillator()
     func play() {
-        //guard let osc = node as? AKOscillator else { return }
         self.oscillator.frequency = random(in: 220...880)
         self.oscillator.start()
     }
