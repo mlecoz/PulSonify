@@ -37,9 +37,67 @@ class Maraca : Sound {
     var isPlaying: Bool = false
     var shaker = AKShaker()
     func play() {
-        shaker.trigger(amplitude: 3.0)
+        self.shaker.trigger(amplitude: 3.0)
     }
     func stop() {
         self.shaker.stop()
     }
+}
+
+class Drip: Sound {
+    var rateRelativeToHeartBeat: Int = 2
+    var isPlaying: Bool = false
+    var drip = AKDrip()
+    func play() {
+        self.drip.dampingFactor = random(in: 10...100)
+        self.drip.trigger()
+    }
+    func stop() {
+        self.drip.stop()
+    }
+}
+
+class Uke1 : Sound {
+    var rateRelativeToHeartBeat: Int = 1
+    var isPlaying: Bool = false
+    var mixer = AKMixer()
+    var file: String
+    
+    init(file: String) {
+        self.file = file
+    }
+    
+    func makePlayer(file: String) -> AKAudioPlayer? {
+        do {
+            
+            let uke = try AKAudioFile(readFileName: file)
+            
+            do {
+                let player = try AKAudioPlayer(file: uke)
+                player.looping = false
+                return player
+            }
+            catch {
+                print("Problem making AKAudioPlayer from audio file")
+                return nil
+            }
+        }
+        catch {
+            print("Problem converting audio file to audio file type")
+            return nil
+        }
+    }
+    
+    func play() {
+        if !mixer.isStarted {
+            mixer.start()
+        }
+        let player = makePlayer(file: file)
+        mixer.connect(input: player)
+        player?.start()
+    }
+    func stop() {
+        mixer.stop()
+    }
+    
 }

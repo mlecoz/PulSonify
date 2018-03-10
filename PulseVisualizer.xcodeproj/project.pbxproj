@@ -13,6 +13,7 @@
 		ABB5E137F1355E08027D99ED /* Pods_PulseVisualizer_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69C8A4B492E875B7F6DEA6F /* Pods_PulseVisualizer_WatchKit_Extension.framework */; };
 		E12F294620538AD500779C59 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F294520538AD500779C59 /* CloudKitManager.swift */; };
 		E12F294A20538BE000779C59 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F294920538BE000779C59 /* Sound.swift */; };
+		E12F294D2053B75F00779C59 /* CGAmF.wav in Resources */ = {isa = PBXBuildFile; fileRef = E12F294C2053B75F00779C59 /* CGAmF.wav */; };
 		E13572C12050C48800D7D773 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13572C02050C48800D7D773 /* CloudKit.framework */; };
 		E13572C32050D2EE00D7D773 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13572C22050D2EE00D7D773 /* CloudKit.framework */; };
 		E16B536F203CF54400E2AD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B536E203CF54400E2AD6D /* AppDelegate.swift */; };
@@ -104,6 +105,7 @@
 		DF7C5148D85694EBA655378D /* Pods-PulseVisualizer WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer WatchKit Extension/Pods-PulseVisualizer WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		E12F294520538AD500779C59 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		E12F294920538BE000779C59 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		E12F294C2053B75F00779C59 /* CGAmF.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CGAmF.wav; sourceTree = SOURCE_ROOT; };
 		E13572C02050C48800D7D773 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		E13572C22050D2EE00D7D773 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E16B536B203CF54400E2AD6D /* PulseVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,7 @@
 		E16B536D203CF54400E2AD6D /* PulseVisualizer */ = {
 			isa = PBXGroup;
 			children = (
+				E12F294C2053B75F00779C59 /* CGAmF.wav */,
 				E16B53C7203CF86F00E2AD6D /* PulseVisualizer.entitlements */,
 				E16B536E203CF54400E2AD6D /* AppDelegate.swift */,
 				E16B5370203CF54400E2AD6D /* ViewController.swift */,
@@ -499,6 +502,7 @@
 				E16B5379203CF54400E2AD6D /* LaunchScreen.storyboard in Resources */,
 				E16B5376203CF54400E2AD6D /* Assets.xcassets in Resources */,
 				E16B5374203CF54400E2AD6D /* Main.storyboard in Resources */,
+				E12F294D2053B75F00779C59 /* CGAmF.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

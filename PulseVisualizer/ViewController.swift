@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     // SOUNDS FOR MIXER
     let randNote = RandomNote()
     let maraca = Maraca()
+    let drip = Drip()
+    let ukeCGAmF = Uke1(file: "CGAmF.wav")
     
     // MANAGERS
     var ckManager = CloudKitManager()
@@ -40,7 +42,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Init mixer and start AudioKit
-        self.mixer = AKMixer(self.randNote.oscillator, self.maraca.shaker)
+        self.mixer = AKMixer(self.randNote.oscillator,
+                             self.maraca.shaker,
+                             self.drip.drip,
+                             self.ukeCGAmF.mixer)
         AudioKit.output = self.mixer
         AudioKit.start()
         
@@ -73,6 +78,12 @@ class ViewController: UIViewController {
             }
             if self.maraca.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.maraca.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.maraca.play()
+            }
+            if self.drip.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.drip.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.drip.play()
+            }
+            if self.ukeCGAmF.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.ukeCGAmF.rateRelativeToHeartBeat * fireInterval) == 0 {
+                self.ukeCGAmF.play()
             }
             
             // to account for different rounding values, would want the mod to fall within some range propotional to the size of the rounding value
@@ -112,6 +123,21 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var dripSwitch: UISwitch!
+    @IBAction func dripSwitchIsToggled(_ sender: UISwitch) {
+        self.drip.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.drip.stop()
+        }
+    }
+    
+    @IBOutlet weak var ukeCGAmFSwitch: UISwitch!
+    @IBAction func ukeCGAmFSwitchIsToggled(_ sender: UISwitch) {
+        self.ukeCGAmF.isPlaying = sender.isOn
+        if !sender.isOn {
+            self.ukeCGAmF.stop()
+        }
+    }
     
 }
 
