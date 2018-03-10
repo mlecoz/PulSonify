@@ -29,7 +29,7 @@ class CloudKitManager {
         }
     }
     
-    func queryRecords(since lastDate: Date, bpmDidChange: @escaping (_ mostRecentRecordInBatch: CKRecord?, _ date: Date) -> Void, bpmDidNotChange: @escaping (_ date: Date) -> Void) {
+    func queryRecords(since lastDate: Date, bpmDidChange: @escaping (_ mostRecentRecordInBatch: CKRecord?, _ date: Date) -> Void) {
         
         let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg) // TODO: filter by the user as well if more users than just me
         let query = CKQuery(recordType: "HeartRateSample", predicate: predicate)
@@ -48,9 +48,6 @@ class CloudKitManager {
                 if records.count > 0 {
                     guard let date = records[records.count - 1].object(forKey: "creationDate") as? Date else { return }
                     bpmDidChange(records[records.count-1], date)
-                }
-                else {
-                    bpmDidNotChange(Date())
                 }
             }
             else {

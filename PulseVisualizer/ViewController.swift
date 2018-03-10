@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     var mixer: AKMixer?
     
-    // SOUNDS
+    // SOUNDS FOR MIXER
     let randNote = RandomNote()
     let maraca = Maraca()
     
@@ -30,10 +30,10 @@ class ViewController: UIViewController {
     
     // STATE
     var lastDate: Date? // date/time at which CloudKit was last queried for heartbeats
-    var bpmArray = [Int]() // keeps track of incoming bpms
     var currentRoundedFireInterval: Int? // rounded to the 100th of a ms
     var currentMillisecLoopNum = 0
-    var gettingFirstInterval = true
+    //    var bpmArray = [Int]() // keeps track of incoming bpms // <-- NOT USING THIS FOR NOW
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +52,6 @@ class ViewController: UIViewController {
             self.ckManager.queryRecords(since: date, bpmDidChange: { mostRecentRecord, date in
                 self.lastDate = date
                 self.bpmDidChange(mostRecentRecordInBatch: mostRecentRecord!)
-                self.gettingFirstInterval = false
-            }, bpmDidNotChange: { date in
-                // actually don't change the date (lest watch is trailing the current date)
-//                if !self.gettingFirstInterval {
-//                    self.lastDate = Date()
-//                }
             })
         }
         
@@ -73,11 +67,10 @@ class ViewController: UIViewController {
             // - whether that sound is on
             // - whether the sound should be played in this 100 ms multiple
             // Examples: to play on every other heartbeat, fireInterval * 2; to do an offset, the mod would equal 100, 200, 300, ...
-            if self.randNote.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0  { // on every heartbeat
-                //self.playBeep() // really less of a beep and more of a sustained note
+            if self.randNote.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.randNote.rateRelativeToHeartBeat * fireInterval) == 0  { // on every heartbeat
                 self.randNote.play()
             }
-            if self.maraca.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0 {
+            if self.maraca.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % (self.maraca.rateRelativeToHeartBeat * fireInterval) == 0 {
                 self.maraca.play()
             }
             
@@ -100,8 +93,8 @@ class ViewController: UIViewController {
         return SEC_IN_MIN / bpm * MS_IN_SEC // interval between beats, in ms
     }
     
-    @IBOutlet weak var beepSwitch: UISwitch!
-    @IBAction func beepSwitchIsToggled(_ sender: UISwitch) {
+    @IBOutlet weak var beepSwitch: UISwitch! // actually the randNote switch
+    @IBAction func beepSwitchIsToggled(_ sender: UISwitch) { // actually the randNote switch
         self.randNote.isPlaying = sender.isOn
         if !sender.isOn {
             self.randNote.stop()
