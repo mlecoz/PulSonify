@@ -19,54 +19,46 @@ class ViewController: UIViewController {
     let MS_IN_SEC = 1000
     let SEC_IN_MIN = 60.0
     
-    // SOUND BOOLEANS - indicates whether or not they're on
-    var beep = false
-    var maraca = false
-
-    // NODES - nodes for each sound type to go into the mixer
     var mixer: AKMixer?
-    let oscillator = AKOscillator()
-    var maracaShaker = AKShaker()
     
-    // CLOUDKIT
-    var db = CKContainer.default().publicCloudDatabase
-    var container = CKContainer.default()
-    var ckUserId: CKRecordID?
+    // SOUNDS
+    let randNote = RandomNote()
+    let maraca = Maraca()
+    
+    // MANAGERS
+    var ckManager = CloudKitManager()
     
     // STATE
     var lastDate: Date? // date/time at which CloudKit was last queried for heartbeats
     var bpmArray = [Int]() // keeps track of incoming bpms
     var currentRoundedFireInterval: Int? // rounded to the 100th of a ms
     var currentMillisecLoopNum = 0
-    
+    var gettingFirstInterval = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Init mixer and start AudioKit
-        self.mixer = AKMixer(self.oscillator, self.maracaShaker)
+        self.mixer = AKMixer(self.randNote.oscillator, self.maraca.shaker)
         AudioKit.output = self.mixer
         AudioKit.start()
         
-        // not actually using this right now
-        // but if I had more than 1 user, I'd want to include the user id in the CloudKit query
-        self.container.fetchUserRecordID() { userRecordID, err in
-            if err == nil {
-                self.ckUserId = userRecordID
-                print("Successfully fetched user record id")
-            }
-            else {
-                print("\(err!)")
-            }
-        }
-        
         // save state
-        self.lastDate = Date()
+        self.lastDate = Date() // init
         
         // Timer for checking cloudkit for new heartrate samples
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             guard let date = self.lastDate else { return }
-            self.queryRecords(since: date)
+            self.ckManager.queryRecords(since: date, bpmDidChange: { mostRecentRecord, date in
+                self.lastDate = date
+                self.bpmDidChange(mostRecentRecordInBatch: mostRecentRecord!)
+                self.gettingFirstInterval = false
+            }, bpmDidNotChange: { date in
+                // actually don't change the date (lest watch is trailing the current date)
+//                if !self.gettingFirstInterval {
+//                    self.lastDate = Date()
+//                }
+            })
         }
         
         // Timer for playing sounds
@@ -81,42 +73,15 @@ class ViewController: UIViewController {
             // - whether that sound is on
             // - whether the sound should be played in this 100 ms multiple
             // Examples: to play on every other heartbeat, fireInterval * 2; to do an offset, the mod would equal 100, 200, 300, ...
-            if self.beep && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0  { // on every heartbeat
-                self.playBeep() // really less of a beep and more of a sustained note
+            if self.randNote.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0  { // on every heartbeat
+                //self.playBeep() // really less of a beep and more of a sustained note
+                self.randNote.play()
             }
-            if self.maraca && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0 {
-                self.playMaraca()
+            if self.maraca.isPlaying && (self.currentMillisecLoopNum * self.INTERVAL_ROUNDING_VALUE) % fireInterval == 0 {
+                self.maraca.play()
             }
             
             // to account for different rounding values, would want the mod to fall within some range propotional to the size of the rounding value
-        }
-    }
-    
-    func queryRecords(since lastDate: Date) {
-        
-        let predicate = NSPredicate(format: "%K > %@", "creationDate", lastDate as CVarArg) // TODO: filter by the user as well if more users than just me
-        let query = CKQuery(recordType: "HeartRateSample", predicate: predicate)
-        let sort = NSSortDescriptor(key: "creationDate", ascending: true)
-        query.sortDescriptors = [sort]
-        self.db.perform(query, inZoneWith: nil) { records, error in
-            if error == nil {
-                guard let records = records else { return }
-                for record in records {
-                    guard let bpm = record.object(forKey: "bpm") as? Int else { return }
-                    self.bpmArray.append(bpm)
-                }
-                if records.count > 0 {
-                    guard let date = records[records.count - 1].object(forKey: "creationDate") as? Date else { return }
-                    self.lastDate = date
-                    self.bpmDidChange(mostRecentRecordInBatch: records[records.count-1])
-                }
-                else {
-                    self.lastDate = Date()
-                }
-            }
-            else {
-                print("\(error!)")
-            }
         }
     }
     
@@ -137,28 +102,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var beepSwitch: UISwitch!
     @IBAction func beepSwitchIsToggled(_ sender: UISwitch) {
-        self.beep = sender.isOn
+        self.randNote.isPlaying = sender.isOn
         if !sender.isOn {
-            oscillator.stop()
+            self.randNote.stop()
         }
     }
     
     @IBOutlet weak var maracaSwitch: UISwitch!
     @IBAction func maracaSwitchIsToggled(_ sender: UISwitch) {
-        self.maraca = sender.isOn
+        self.maraca.isPlaying = sender.isOn
         if !sender.isOn {
-            maracaShaker.stop()
+            self.maraca.stop()
         }
-    }
-    
-    
-    func playBeep() {
-        oscillator.frequency = random(in: 220...880)
-        oscillator.start()
-    }
-    
-    func playMaraca() {
-        maracaShaker.trigger(amplitude: 3.0)
     }
     
     

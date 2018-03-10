@@ -11,6 +11,8 @@
 		7A9503C4BE3735062D190137 /* Pods_PulseVisualizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57B6692B9A7053F88E7DB25 /* Pods_PulseVisualizerTests.framework */; };
 		98606328BBFB6C9BE3381B7F /* Pods_PulseVisualizerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F7C1F8AFD611E3DF2F9E00 /* Pods_PulseVisualizerUITests.framework */; };
 		ABB5E137F1355E08027D99ED /* Pods_PulseVisualizer_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69C8A4B492E875B7F6DEA6F /* Pods_PulseVisualizer_WatchKit_Extension.framework */; };
+		E12F294620538AD500779C59 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F294520538AD500779C59 /* CloudKitManager.swift */; };
+		E12F294A20538BE000779C59 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F294920538BE000779C59 /* Sound.swift */; };
 		E13572C12050C48800D7D773 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13572C02050C48800D7D773 /* CloudKit.framework */; };
 		E13572C32050D2EE00D7D773 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13572C22050D2EE00D7D773 /* CloudKit.framework */; };
 		E16B536F203CF54400E2AD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B536E203CF54400E2AD6D /* AppDelegate.swift */; };
@@ -100,6 +102,8 @@
 		A7739A14A78EEEAE07658202 /* Pods-PulseVisualizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizerTests/Pods-PulseVisualizerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB2479B5E337183BAD108420 /* Pods-PulseVisualizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizerUITests/Pods-PulseVisualizerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DF7C5148D85694EBA655378D /* Pods-PulseVisualizer WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseVisualizer WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseVisualizer WatchKit Extension/Pods-PulseVisualizer WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		E12F294520538AD500779C59 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		E12F294920538BE000779C59 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		E13572C02050C48800D7D773 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		E13572C22050D2EE00D7D773 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E16B536B203CF54400E2AD6D /* PulseVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +225,8 @@
 				E16B5375203CF54400E2AD6D /* Assets.xcassets */,
 				E16B5377203CF54400E2AD6D /* LaunchScreen.storyboard */,
 				E16B537A203CF54400E2AD6D /* Info.plist */,
+				E12F294520538AD500779C59 /* CloudKitManager.swift */,
+				E12F294920538BE000779C59 /* Sound.swift */,
 			);
 			path = PulseVisualizer;
 			sourceTree = "<group>";
@@ -749,6 +755,8 @@
 			files = (
 				E16B5371203CF54400E2AD6D /* ViewController.swift in Sources */,
 				E16B536F203CF54400E2AD6D /* AppDelegate.swift in Sources */,
+				E12F294620538AD500779C59 /* CloudKitManager.swift in Sources */,
+				E12F294A20538BE000779C59 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
