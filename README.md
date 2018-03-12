@@ -1,5 +1,5 @@
 # PulSonify
-### sounds to the tempo of your pulse
+sounds to the tempo of your pulse
 
 Final project for MUS 103 (Sounding the Body: Signals and Systems) at Dartmouth College, Winter 2018
 
@@ -29,5 +29,36 @@ based on how much of the green light is absorbed by the wearer's veins. While th
 Every 1 second, the PulSonify iPhone app polls the CloudKit database, asking if there is any new heartrate data. If there is indeed new information, the most recent bpm is the only one that is noted.
 
 ### Converting BPM to Tempo
-The most recent BPM recording is converted to a "fire interval" that determines
+The most recent BPM recording is converted to a "fire interval" that denotes the time (in milliseconds) between heartbeats.
+```
+func fireInterval(bpm: Int) -> Double {
+    return SEC_IN_MIN / bpm * MS_IN_SEC // interval between beats, in ms
+}
+```
+The fire interval is then rounded to the nearest 100 ms for reasons described in the next section.
+
+### Generating Sounds
+The PulSonify iPhone app has a timer set to execute a block of code every 100 ms. Timers are unable to effectively handle shorter frequencies than this. This is why the fire interval is rounded to the nearest 100 ms.
+
+Suppose that the fire interval is 700 ms. Then every seventh time the timer is invoked, sounds would be played. The sonification code consists of a series of  `if` statements checking whether each of the
+sound switches in the app are turned on. If the switch for a given sound is turned and the proper number of timer cycles have passed, then the sound will play. (That is actually a slight simplification--some sounds are set to play on every second, third, fourth, etc. fire interval. This check is also made before playing a sound.)
+
+To generate sounds, Pulsonify uses AudioKit, an open source API for playing audio - https://github.com/AudioKit/AudioKit.
+
+For simplicity of code organization, each sound option is represented by a class that implements a Swift protocol (interface) that I defined, called `Sound`.
+
+```
+protocol Sound {
+    var rateRelativeToHeartBeat: Int { get set }
+    var isPlaying: Bool { get set }
+    func play()
+    func stop()
+}
+```
+
+The final two sound options are convolutions of the heartbeat with sounds I recorded. Because each heartbeat is like an impulse response with unit 1, playing the sound at every fire interval achieves the desired convolution.
+
+
+
+
 
