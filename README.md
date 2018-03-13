@@ -58,22 +58,15 @@ The final two sound options are convolutions of the heartbeat with sounds I reco
 
 ## Concept and Purpose
 
+PulSonify makes the user the artist/conductor. Not only does the user consciously control what sounds PulSonify plays by flipping switches, but s/he also unconsciously controls the tempo with his/her heartbeat. The feedback that the user hears in turn impacts both his/her conscious and unconscious means of control over the sound.
+
 This version of PulSonify enables a smattering of pulse sonification methods. In this sense, this version of PulSonify is an exploration of a wide range of conceptual possibilities. What follows is an explanation of each of these possibilities.
 
-### Music Mixer
-The top switches (argeggio, maraca, drips, bells, snap) relate to this concept. PulSonify could become a music mixing tool, in which artists select which musical sounds should play to the beat of their heart. Further options could be offered, such as a slider controlling the amplitude of these sounds.
-
-### Autonomic Feedback
-Hearing an auditory representation of one's own heartbeat can be helpful when one is trying to slow it down and thereby relax. It can also be useful for assessing one's exertion in exercise.
+### Music/Tap Dance Mixer
+The top switches (argeggio, maraca, drips, bells, snap) relate to this concept. PulSonify could become a music mixing tool, in which artists select which musical sounds should play to the beat of their heart. Further options could be offered, such as a slider controlling the amplitude of these sounds. The tap dance sounds (brush, perry diddle, shuffles, cramproll, flap) that I recorded could also be used in this sound sythesis.
 
 ### Convolution Generator
 My two favorite switches in the PulSonify iPhone app are "uke convolution" and "singing convolution." Each convolves a clip I recorded with the heartbeat itself. In the ukulele clip, I play the chords C-G-Am-F. In the singing clip, I sing the first few words of the Latin hymn "O Salutaris Hostia." I chose a Latin song because I figured that the convolution would sound less like muddled language and more like raw sung notes (this assessment, I believe, was correct). I liked the convolutions so much because they sounded cool, *and* it was possible to hear the throb of the heartbeat in them. This made for a really interesting way to hear your own heartbeat. It'd be cool to add a feature to PulSonify that allows users to record their own sound clip (via the app) to convolve with their heartbeat!
 
-### Tap Dance Choreography Aid
-Several of the sound switches (brush, perry diddle, shuffles, cramproll, flap) in the PulSonify app are tap dance sounds that I recorded. 
-
-
-
-
-
-
+### Autonomic Feedback
+Hearing an auditory representation of one's own heartbeat can be helpful when one is trying to slow it down and thereby relax. It can also be useful for assessing exercise exertion.
