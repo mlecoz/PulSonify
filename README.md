@@ -14,7 +14,7 @@ Note: It takes a little over 10 seconds for the heartbeat data to be made availa
 
 ## Video Demo
 
-![Watch the demo](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)
+[![Watch the demo](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)
 
 ## Technological Details
 
