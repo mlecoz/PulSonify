@@ -14,6 +14,8 @@ Note: It takes a little over 10 seconds for the heartbeat data to be made availa
 
 ## Video Demo
 
+[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)
+
 ## Technological Details
 
 The PulSonify Watch app reads data from the Watch's heartrate sensors, which it then sends to a cloud database. The Pulsonify iPhone reads from this cloud database periodically, adjusting the rate at
