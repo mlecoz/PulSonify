@@ -72,3 +72,6 @@ My two favorite switches in the PulSonify iPhone app are "uke convolution" and "
 
 ### Autonomic Feedback
 Hearing an auditory representation of one's own heartbeat can be helpful when one is trying to slow it down and thereby relax. It can also be useful for assessing exercise exertion.
+
+## Guide to Sounds
+![Alt text](soundguide.png)
