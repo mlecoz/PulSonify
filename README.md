@@ -1,5 +1,5 @@
 # PulSonify
-sounds to the tempo of your pulse
+**sounds to the tempo of your pulse**
 
 Final project for MUS 103 (Sounding the Body: Signals and Systems) at Dartmouth College, Winter 2018
 
@@ -13,8 +13,6 @@ To use the system, simply:
 Note: It takes a little over 10 seconds for the heartbeat data to be made available to the phone app, so don't be alarmed if there's a slight lag.
 
 ## Video Demo
-
-## Concept and Purpose
 
 ## Technological Details
 
@@ -57,6 +55,23 @@ protocol Sound {
 ```
 
 The final two sound options are convolutions of the heartbeat with sounds I recorded. Because each heartbeat is like an impulse response with unit 1, playing the sound at every fire interval achieves the desired convolution.
+
+## Concept and Purpose
+
+This version of PulSonify enables a smattering of pulse sonification methods. In this sense, this version of PulSonify is an exploration of a wide range of conceptual possibilities. What follows is an explanation of each of these possibilities.
+
+### Music Mixer
+The top switches (argeggio, maraca, drips, bells, snap) relate to this concept. PulSonify could become a music mixing tool, in which artists select which musical sounds should play to the beat of their heart. Further options could be offered, such as a slider controlling the amplitude of these sounds.
+
+### Autonomic Feedback
+Hearing an auditory representation of one's own heartbeat can be helpful when one is trying to slow it down and thereby relax. It can also be useful for assessing one's exertion in exercise.
+
+### Convolution Generator
+My two favorite switches in the PulSonify iPhone app are "uke convolution" and "singing convolution." Each convolves a clip I recorded with the heartbeat itself. In the ukulele clip, I play the chords C-G-Am-F. In the singing clip, I sing the first few words of the Latin hymn "O Salutaris Hostia." I chose a Latin song because I figured that the convolution would sound less like muddled language and more like raw sung notes (this assessment, I believe, was correct). I liked the convolutions so much because they sounded cool, *and* it was possible to hear the throb of the heartbeat in them. This made for a really interesting way to hear your own heartbeat. It'd be cool to add a feature to PulSonify that allows users to record their own sound clip (via the app) to convolve with their heartbeat!
+
+### Tap Dance Choreography Aid
+Several of the sound switches (brush, perry diddle, shuffles, cramproll, flap) in the PulSonify app are tap dance sounds that I recorded. 
+
 
 
 
