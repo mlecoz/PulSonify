@@ -1,5 +1,5 @@
 # PulSonify
-**sounds to the tempo of your pulse**
+**sounds to the tempo of your heartbeat**
 
 Final project for MUS 103 (Sounding the Body: Signals and Systems) at Dartmouth College, Winter 2018
 
