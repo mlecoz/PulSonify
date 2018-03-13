@@ -14,7 +14,7 @@ Note: It takes a little over 10 seconds for the heartbeat data to be made availa
 
 ## Video Demo
 
-[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)
 
 ## Technological Details
 
