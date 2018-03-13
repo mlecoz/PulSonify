@@ -60,7 +60,7 @@ The final two sound options are convolutions of the heartbeat with sounds I reco
 
 ## Concept and Purpose
 
-PulSonify makes the user the artist/conductor. Not only does the user consciously control what sounds PulSonify plays by flipping switches, but s/he also unconsciously controls the tempo with his/her heartbeat. The feedback that the user hears in turn impacts both his/her conscious and unconscious means of control over the sound.
+PulSonify makes the user the artist/conductor. Not only does the user consciously control what sounds PulSonify plays by flipping switches, but s/he also unconsciously controls the tempo with his/her heartbeat. The feedback that the user hears in turn impacts both his/her conscious and unconscious means of control over the sound. The app is like an instrument, and the user is like the musician.
 
 This version of PulSonify enables a smattering of pulse sonification methods. In this sense, this version of PulSonify is an exploration of a wide range of conceptual possibilities. What follows is an explanation of each of these possibilities.
 
