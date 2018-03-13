@@ -12,6 +12,9 @@ To use the system, simply:
 
 Note: It takes a little over 10 seconds for the heartbeat data to be made available to the phone app, so don't be alarmed if there's a slight lag.
 
+## Guide to Sounds
+![Alt text](soundguide.png)
+
 ## Video Demo
 
 [![Watch the demo](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)](https://raw.github.com/mlecoz/PulSonify/master/demo1.mov)
@@ -72,6 +75,3 @@ My two favorite switches in the PulSonify iPhone app are "uke convolution" and "
 
 ### Autonomic Feedback
 Hearing an auditory representation of one's own heartbeat can be helpful when one is trying to slow it down and thereby relax. It can also be useful for assessing exercise exertion.
-
-## Guide to Sounds
-![Alt text](soundguide.png)
